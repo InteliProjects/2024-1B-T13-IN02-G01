@@ -1,0 +1,301 @@
+<form
+  id="main-form"
+  id="form-537987388"
+  data-dds="form"
+  class="mainContentAddManuais flex flex-col w-full h-auto px-4 md:px-12 gap-8"
+>
+  <nav id="breadcrumb-906636596" aria-label="breadcrumb">
+    <ol id="breadcrumb-list-500396520-6" class="dds__breadcrumb">
+      <li class="dds__breadcrumb__item">
+        <a href="/manuaisAdmin">
+          <span
+            class="dds__icon dds__icon--chevron-left dds__breadcrumb__chevron-left-icon"
+            aria-hidden="true"
+          ></span>
+          Voltar para Manuais
+          <span class="dds__sr-only">Voltar para Manuais</span>
+        </a>
+      </li>
+      <li class="dds__breadcrumb__item">
+        <a href="/aditarHandbooks">Editar Manuais</a>
+      </li>
+    </ol>
+  </nav>
+  <h2 class="mb-8">Editar Manuais</h2>
+  <div class="mainInformationManuaisContent flex flex-col w-full gap-5">
+    <fieldset class="dds__form__section gap-3 flex w-full flex-col">
+      <div id="text input-590698199" class="dds__input-text__container">
+        <label
+          id="text-input-label-972167186"
+          for="text-input-control-972167186"
+          class="dds__label dds__label--required"
+          >Nome do Produto</label
+        >
+        <div class="dds__input-text__wrapper">
+          <input
+            type="text"
+            class="dds__input-text"
+            placeholder="ex: Alienware 13"
+            name="text-input-control-name-972167186"
+            id="text-input-control-972167186"
+            required="true"
+            aria-labelledby="text-input-label-972167186 text-input-helper-972167186"
+          />
+        </div>
+      </div>
+      <div class="dds__text-area__container" data-dds="text-area">
+        <div class="dds__text-area__header">
+          <label
+            id="text-area-label-359524269"
+            for="text-area-control-359524269"
+            class="dds__label dds__label--required"
+            >Descrição do manual</label
+          >
+        </div>
+        <div class="dds__text-area__wrapper">
+          <textarea
+            class="dds__text-area"
+            name="text-area-control-name-359524269"
+            placeholder="Adicione uma descrição para o manual"
+            id="text-area-control-359524269"
+            data-maxlength="1000"
+            maxlength="1000"
+            aria-required="true"
+            aria-labelledby="text-area-label-359524269 text-area-helper-359524269"
+            required=""
+          ></textarea>
+          <small id="text-area-error-359524269" class="dds__invalid-feedback"
+            >Algo deu errado</small
+          >
+        </div>
+      </div>
+      <div class="w-full flex max-sm:flex-col gap-5">
+        <div
+          class="dds__dropdown w-full"
+          data-dds="dropdown"
+          id="dropdown-996139459"
+        >
+          <div class="dds__dropdown__input-container">
+            <label
+              id="dropdown-label-133786599"
+              for="dropdown-control-133786599"
+              class="dds__label"
+              >Linha de montagem associada</label
+            >
+            <div
+              class="dds__dropdown__input-wrapper"
+              autocomplete="off"
+              aria-haspopup="listbox"
+              aria-controls="dropdown-popup-133786599"
+            >
+              <input
+                id="dropdown-control-133786599"
+                name="dropdown-name"
+                placeholder="Linha de montagem X"
+                type="text"
+                role="combobox"
+                class="dds__dropdown__input-field"
+                aria-labelledby="dropdown-label-133786599 dropdown-helper-133786599"
+                autocomplete="off"
+                aria-expanded="false"
+                aria-controls="dropdown-popup-list-133786599"
+              />
+              <div
+                id="text-input-error-968381216"
+                class="dds__invalid-feedback"
+              >
+                Por favor preencha este campo
+              </div>
+            </div>
+          </div>
+          <div
+            id="dropdown-popup-133786599"
+            class="dds__dropdown__popup dds__dropdown__popup--hidden"
+            role="presentation"
+            tabindex="-1"
+          >
+            <ul
+              class="dds__dropdown__list"
+              role="listbox"
+              tabindex="-1"
+              id="dropdown-popup-list-133786599"
+            ></ul>
+          </div>
+        </div>
+        <div
+          id="datepicker-827446140"
+          class="dds__date-picker w-full"
+          data-dds="date-picker"
+        >
+          <label
+            id="date-picker-label-108505558"
+            for="date-picker-control-name-108505558"
+            class="dds__label dds__label--required"
+          >
+            Data de atualização
+          </label>
+          <div class="dds__date-picker__wrapper">
+            <input
+              placeholder="dd/mm/yyyy"
+              type="text"
+              disabled
+              class="dds__date-picker__input"
+              required="true"
+              maxlength="256"
+              id="date-picker-control-108505558"
+              name="date-picker-control-name-108505558"
+              aria-labelledby="date-picker-label-108505558"
+              aria-describedby="date-picker-helper-108505558"
+            />
+            <div
+              id="date-picker-error-108505558"
+              class="dds__date-picker__invalid-feedback"
+            >
+              Data inválida
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <button
+      id="submit-form-button"
+      class="dds__button dds__form__submit w-full"
+      type="submit"
+    >
+      Editar manual
+    </button>
+  </div>
+</form>
+
+<script>
+  // Obtém o elemento de navegação breadcrumb e inicializa o componente DDS.Breadcrumb nele
+  const breadcrumbNavegation = document.getElementById('breadcrumb-906636596');
+  DDS.Breadcrumb(breadcrumbNavegation);
+  let dropdownAPI;
+  
+  // Função assíncrona para buscar e renderizar as linhas de montagem no dropdown
+  const fetchAssembleLine = async () => {
+    try {
+      // Faz uma requisição assíncrona para obter as linhas de montagem da API '/assembleLines'
+      const response = await fetch('/assembleLines');
+      const data = await response.json();
+      // Obtém o elemento da lista de itens do dropdown para preenchê-lo com as linhas de montagem
+      const dropdown_item_list = document.getElementById(
+        'dropdown-popup-list-133786599'
+      );
+
+      dropdown_item_list.innerHTML = '';
+
+      // Itera sobre os dados recebidos para criar as opções no dropdown
+      data.forEach((assembleLine) => {
+        const option = document.createElement('li');
+        option.className = 'dds__dropdown__item';
+        option.role = 'none';
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'dds__dropdown__item-option';
+        button.role = 'option';
+        button.dataset.selected = 'false';
+        button.dataset.value = assembleLine.id;
+        button.tabIndex = '-1';
+
+        const span = document.createElement('span');
+        span.className = 'dds__dropdown__item-label';
+        span.textContent = assembleLine.name;
+
+        button.appendChild(span);
+        option.appendChild(button);
+        dropdown_item_list.appendChild(option);
+      });
+
+      dropdownAPI = await DDS.Dropdown(dropdownElement, { selectAll: false });
+       // Seleciona automaticamente a opção correspondente à linha de montagem associada, se houver
+      dropdownAPI.selectOption(
+        '<%= handbook.id_associatedAssembleLine?.toString() %>'
+      );
+    } catch (error) {
+      console.error('Error fetching assembleLines:', error);
+    }
+  };
+  // Chama a função para buscar e renderizar as linhas de montagem
+  fetchAssembleLine();
+  // Obtém o formulário principal e adiciona um listener de evento para submeter o formulário
+  const formElement = document.getElementById('main-form');
+  formElement.addEventListener('submit', (e) => submitForm(e));
+  // Obtém elementos específicos e inicializa os componentes DDS correspondentes
+  const dropdownElement = document.getElementById('dropdown-996139459');
+
+  const fileInputElement = document.getElementById('fileinput-510918656');
+
+  DDS.FileInput(fileInputElement, { acceptedFileTypes: '.png, .pdf, video/*' });
+
+  const element3 = document.getElementById('tooltip-367512930');
+  DDS.Tooltip(element3, { trigger: '#tooltip-367512930-trigger' });
+
+  const datePickerElement = document.getElementById('datepicker-827446140');
+  const dateAPI = DDS.DatePicker(datePickerElement, {
+    startDate: new Date(1900, 0, 1),
+    endDate: new Date(2100, 11, 31),
+    inactiveDates: [new Date(2024, 5, 10), new Date(2024, 5, 15)],
+    locale: 'pt-BR',
+    format: 'DD/MM/YYYY',
+  });
+
+  // Obtém elementos de input específicos e define seus valores iniciais com base nos dados de handbook
+  const productNameInput = document.getElementById(
+    'text-input-control-972167186'
+  );
+  const productTextArea = document.getElementById(
+    'text-area-control-359524269'
+  );
+
+  productNameInput.value = '<%= handbook.productName %>';
+  productTextArea.value = '<%= handbook.description %>';
+  dateAPI.setDate(new Date());
+  // Função assíncrona para submeter o formulário ao realizar o evento de submit
+  const submitForm = async (e) => {
+    event.preventDefault();
+
+    const submitbutton = document.getElementById('submit-form-button');
+    submitbutton.disabled = true;
+
+    const productName = productNameInput.value;
+    const productDescription = productTextArea.value;
+    const dateValue = dateAPI.getDate();
+
+    if (!dropdownAPI) return;
+
+    const assembleLine = dropdownAPI?.getSelection();
+     // Obtém os valores dos campos do formulário
+    const dados = {
+      productName: productName,
+      description: productDescription,
+      id_associatedAssembleLine: parseInt(assembleLine),
+      publicationDate: new Date(dateValue.date).getTime(),
+      images: '<%= handbook.images %>',
+    };
+
+    try {
+       // Faz uma requisição assíncrona para atualizar o handbook específico
+      const response = await fetch(`/handbooks/${'<%= handbook.id %>'}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dados),
+      });
+
+      submitbutton.disabled = false;
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok ' + response.statusText);
+      }
+
+      const data = await response.json();
+      window.location.href = '/manuaisAdmin';
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+</script>

@@ -1,0 +1,405 @@
+<div class="flex flex-col px-4 md:px-12 w-full gap-4">
+  <nav id="breadcrumb-906636596" aria-label="breadcrumb">
+    <ol id="breadcrumb-list-500396520-6" class="dds__breadcrumb">
+      <li class="dds__breadcrumb__item">
+        <a href="/assembleLine">
+          <span
+            class="dds__icon dds__icon--chevron-left dds__breadcrumb__chevron-left-icon"
+            aria-hidden="true"
+          ></span>
+          Voltar para linhas de montagem
+          <span class="dds__sr-only">Voltar para linhas de montagem</span>
+        </a>
+      </li>
+      <li class="dds__breadcrumb__item">
+        <a href="/addTask">Associar tarefa</a>
+      </li>
+    </ol>
+  </nav>
+
+  <h2>Associar nova tarefa</h2>
+
+  <form id="add-task-form" class="flex flex-col add-task-form gap-4">
+    <!-- 
+
+ -->
+
+    <div class="dds__dropdown" data-dds="dropdown" id="dropdown-assembleLine">
+      <div class="dds__dropdown__input-container">
+        <label
+          id="dropdown-label-assembleLine"
+          for="dropdown-control-assembleLine"
+          class="dds__label dds__label--required"
+          >Linha de montagem</label
+        >
+        <div
+          class="dds__dropdown__input-wrapper"
+          autocomplete="off"
+          aria-haspopup="listbox"
+          aria-controls="dropdown-popup-assembleLine"
+        >
+          <input
+            id="dropdown-control-assembleLine"
+            name="dropdown-name"
+            type="text"
+            role="combobox"
+            class="dds__dropdown__input-field"
+            required="true"
+            placeholder="ex: Linha A"
+            aria-labelledby="dropdown-label-assembleLine dropdown-helper-assembleLine"
+            autocomplete="off"
+            aria-expanded="false"
+            aria-controls="dropdown-popup-list-assembleLine"
+          />
+          <small
+            id="dropdown-helper-associatedHandbook"
+            class="dds__input-text__helper"
+          >
+            Selecione uma linha de montagem para associar a tarefa
+          </small>
+        </div>
+      </div>
+      <div
+        id="dropdown-popup-assembleLine"
+        class="dds__dropdown__popup dds__dropdown__popup--hidden"
+        role="presentation"
+        tabindex="-1"
+      >
+        <ul
+          class="dds__dropdown__list"
+          role="listbox"
+          tabindex="-1"
+          id="dropdown-popup-list-assembleLine"
+        ></ul>
+      </div>
+    </div>
+    <!-- 
+
+
+ -->
+    <div class="dds__dropdown" data-dds="dropdown" id="dropdown-handbook">
+      <div class="dds__dropdown__input-container">
+        <label
+          id="dropdown-label-handbook"
+          for="dropdown-control-handbook"
+          class="dds__label"
+          >Manuais</label
+        >
+        <div
+          class="dds__dropdown__input-wrapper"
+          autocomplete="off"
+          aria-haspopup="listbox"
+          aria-controls="dropdown-popup-handbook"
+        >
+          <input
+            id="dropdown-control-handbook"
+            name="dropdown-name"
+            type="text"
+            role="combobox"
+            class="dds__dropdown__input-field"
+            placeholder="ex: Manual A"
+            aria-labelledby="dropdown-label-handbook dropdown-helper-handbook"
+            autocomplete="off"
+            aria-expanded="false"
+            aria-controls="dropdown-popup-list-handbook"
+          />
+          <small
+            id="dropdown-helper-associatedHandbook"
+            class="dds__input-text__helper"
+          >
+            Selecione um ou mais manuais para associar a tarefa
+          </small>
+        </div>
+      </div>
+      <div
+        id="dropdown-popup-handbook"
+        class="dds__dropdown__popup dds__dropdown__popup--hidden"
+        role="presentation"
+        tabindex="-1"
+      >
+        <ul
+          class="dds__dropdown__list"
+          role="listbox"
+          tabindex="-1"
+          id="dropdown-popup-list-handbook"
+        ></ul>
+      </div>
+    </div>
+    <!-- 
+
+
+     -->
+    <div class="dds__dropdown" data-dds="dropdown" id="dropdown-priority">
+      <div class="dds__dropdown__input-container">
+        <label
+          id="dropdown-label-priority"
+          for="dropdown-control-priority"
+          class="dds__label dds__label--required"
+          >Prioridade</label
+        >
+        <div
+          class="dds__dropdown__input-wrapper"
+          autocomplete="off"
+          aria-haspopup="listbox"
+          aria-controls="dropdown-popup-priority"
+        >
+          <input
+            id="dropdown-control-priority"
+            name="dropdown-name"
+            type="text"
+            role="combobox"
+            required="true"
+            class="dds__dropdown__input-field"
+            placeholder="Selecione a prioridade"
+            aria-labelledby="dropdown-label-priority dropdown-helper-priority"
+            autocomplete="off"
+            aria-expanded="false"
+            aria-controls="dropdown-popup-list-priority"
+          />
+        </div>
+      </div>
+      <div
+        id="dropdown-popup-priority"
+        class="dds__dropdown__popup dds__dropdown__popup--hidden"
+        role="presentation"
+        tabindex="-1"
+      >
+        <ul
+          class="dds__dropdown__list"
+          role="listbox"
+          tabindex="-1"
+          id="dropdown-popup-list-priority"
+        >
+          <li class="dds__dropdown__item" role="none">
+            <button
+              type="button"
+              class="dds__dropdown__item-option"
+              role="option"
+              data-selected="false"
+              data-value="Baixa"
+              tabindex="-1"
+            >
+              <span class="dds__dropdown__item-label">Baixa</span>
+            </button>
+          </li>
+          <li class="dds__dropdown__item" role="none">
+            <button
+              type="button"
+              class="dds__dropdown__item-option"
+              role="option"
+              data-selected="false"
+              data-value="Média"
+              tabindex="-1"
+            >
+              <span class="dds__dropdown__item-label">Média</span>
+            </button>
+          </li>
+          <li class="dds__dropdown__item" role="none">
+            <button
+              type="button"
+              class="dds__dropdown__item-option"
+              role="option"
+              data-selected="false"
+              data-value="Alta"
+              tabindex="-1"
+            >
+              <span class="dds__dropdown__item-label">Alta</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 
+
+ -->
+    <button
+      id="submit-form-button"
+      class="dds__button dds__form__submit w-full my-4"
+      type="submit"
+    >
+      Associar tarefa
+    </button>
+  </form>
+</div>
+
+<script>
+  const breadcrumbNavegation = document.getElementById('breadcrumb-906636596');
+  DDS.Breadcrumb(breadcrumbNavegation);
+  let priority = null;
+  //inicializa o dropdown para as linhas de montagem
+  const dropdownAssembleLine = document.getElementById('dropdown-assembleLine');
+  DDS.Dropdown(dropdownAssembleLine, { selectAll: false });
+  let id_associatedAssembleLine = null;
+  let listaDeAssembleLines = [];
+  dropdownAssembleLine.addEventListener(
+    'ddsDropdownSelectionChangeEvent',
+    (event) => {
+      id_associatedAssembleLine = event.detail.value;
+    }
+  );
+
+  //fetch para encontrar as linhas de montagem
+  const fetchAssembleLines = async () => {
+    try {
+      const fetchResultAssembleLines = await fetch('/assembleLines');
+      listaDeAssembleLines = await fetchResultAssembleLines.json();
+      renderAssembleLines();
+    } catch (error) {
+      console.error('Error fetching assemble lines:', error);
+    }
+  };
+
+  const renderAssembleLines = () => {
+    const assembleLinesOptions = document.getElementById(
+      'dropdown-popup-list-assembleLine'
+    ); // Obtém o elemento da galeria de manuais
+    assembleLinesOptions.innerHTML = ''; //limpa a galeria de manuais // Adiciona classes de grid, espaçamento e largura automática
+
+    listaDeAssembleLines?.forEach((assembleLine) => {
+      // Itera sobre cada manual
+      const assembleLinesElement = document.createElement('div'); // Cria um novo elemento div para cada manual
+      assembleLinesElement.id = assembleLine.id; // Define o ID do elemento com o ID do manual
+      assembleLinesElement.classList.add('dds__dropdown__list');
+      assembleLinesElement.innerHTML = `
+            <li class="dds__dropdown__item" role="none">
+              <button
+                type="button"
+                class="dds__dropdown__item-option"
+                role="option"
+                data-selected="false"
+                data-value="${assembleLine.id}"
+                tabindex="-1"
+              >
+                <span class="dds__dropdown__item-label">${assembleLine.name}</span>
+              </button>
+            </li>
+        `; // Define o HTML interno do elemento do manual
+
+      assembleLinesOptions.appendChild(assembleLinesElement); // Adiciona o elemento do manual à galeria
+    });
+  };
+  fetchAssembleLines();
+
+  // Inicializa o dropdown para os manuais
+  const dropdownHandbook = document.getElementById('dropdown-handbook');
+  let id_associatedHandbook = null;
+  let listaDeHandbooks = [];
+  dropdownHandbook.addEventListener(
+    'ddsDropdownSelectionChangeEvent',
+    (event) => {
+      id_associatedHandbook = event.detail.value;
+    }
+  );
+
+  //fetch para pegar os manuais
+  const fetchHandbooks = async () => {
+    try {
+      const fetchResultHandbooks = await fetch('/handbooks');
+      listaDeHandbooks = await fetchResultHandbooks.json();
+      renderHandbooks();
+    } catch (error) {
+      console.error('Error fetching handbooks:', error);
+    }
+  };
+
+  const renderHandbooks = () => {
+    const handbooksOptions = document.getElementById(
+      'dropdown-popup-list-handbook'
+    ); // Obtém o elemento da galeria de manuais
+    handbooksOptions.innerHTML = '';
+    DDS.Dropdown(dropdownHandbook, {
+      selectAll: true,
+      selection: 'multiple',
+      noOptionsLabel: 'Nenhum manual encontrado',
+      selectAllLabel: 'Selecionar todos',
+      selectedLabel: 'Selecionado',
+      srClearLabel: 'Limpar seleção',
+    });
+
+    listaDeHandbooks?.forEach((handbook) => {
+      // Itera sobre cada manual
+      const handbooksElement = document.createElement('li'); // Cria um novo elemento div para cada manual
+      handbooksElement.id = handbook.id; // Define o ID do elemento com o ID do manual
+      handbooksElement.classList.add('dds__dropdown__item');
+      handbooksElement.setAttribute('role', 'none');
+      handbooksElement.innerHTML = `
+              <button
+                type="button"
+                class="dds__dropdown__item-option"
+                role="option"
+                data-selected="false"
+                data-value="${handbook.id}"
+                tabindex="-1"
+              >
+                <span class="dds__dropdown__item-label">${handbook.name}</span>
+              </button>
+        `; // Define o HTML interno do elemento do manual
+
+      handbooksOptions.appendChild(handbooksElement); // Adiciona o elemento do manual à galeria
+    });
+  };
+  fetchHandbooks();
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdownPriority = document.getElementById('dropdown-priority');
+    DDS.Dropdown(dropdownPriority, { selectAll: false });
+
+    dropdownPriority.addEventListener(
+      'ddsDropdownSelectionChangeEvent',
+      (event) => {
+        priority = event.detail.value;
+      }
+    );
+  });
+
+  const form = document.getElementById('add-task-form');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    createTasksForHandbooks(
+      priority,
+      id_associatedHandbook,
+      id_associatedAssembleLine
+    );
+  });
+
+  const createTasksForHandbooks = (
+    priority,
+    id_associatedHandbook,
+    id_associatedAssembleLine
+  ) => {
+    id_associatedHandbook.forEach((handbookId) => {
+      fetch('/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          isFinished: false,
+          uploadDate: new Date(),
+          priority: priority,
+          id_associatedHandbook: handbookId,
+          id_associatedAssembleLine: id_associatedAssembleLine,
+        }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              'Network response was not ok ' + response.statusText
+            );
+          }
+          return response.json();
+        })
+        .then((data) => {
+          alert('Task added successfully for handbook ID: ' + handbookId);
+          // Optional: Clear the form after successful submission
+          document.getElementById('add-task-form').reset();
+        })
+        .catch((error) =>
+          console.error(
+            'Error adding task for handbook ID ' + handbookId + ':',
+            error
+          )
+        );
+    });
+  };
+</script>

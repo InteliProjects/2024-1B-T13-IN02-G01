@@ -1,0 +1,659 @@
+<div
+  class="flex lg:flex-row flex-col justify-between items-start w-full max-w-full px-4 md:px-12 gap-10"
+>
+  <div
+    class="flex flex-col justify-center items-start w-full lg:max-w-[300px] gap-5"
+  >
+    <!-- Seção esquerda com layout flex em coluna, centralizada verticalmente -->
+    <h2 class="mb-3 font-light">Filtros</h2>
+    <!-- Título da seção de filtros -->
+    <div
+      role="region"
+      id="accordion-filter"
+      class="dds__accordion w-full"
+      data-dds="accordion"
+    >
+      <div class="dds__accordion__control">
+        <button
+          type="button"
+          aria-disabled="false"
+          class="dds__accordion__control__expand"
+        >
+          Expandir todos
+        </button>
+        <button
+          type="button"
+          aria-disabled="false"
+          class="dds__accordion__control__collapse"
+        >
+          Recolher todos
+        </button>
+      </div>
+      
+      <div class="dds__accordion__item">
+        <h5 class="dds__accordion__heading">
+          <button
+            type="button"
+            id="accordion-item-trigger-306375151"
+            class="dds__accordion__button"
+            aria-expanded="false"
+            aria-controls="accordion-item-content-306375151"
+          >
+            Tipo de produto
+          </button>
+        </h5>
+        <div
+          id="accordion-item-content-306375151"
+          class="dds__accordion__content"
+          role="region"
+          aria-labelledby="accordion-item-trigger-306375151"
+        >
+          <div class="dds__accordion__body">
+            <fieldset
+              class="dds__fieldset dds__checkbox-group"
+              aria-describedby="checkbox-error-468930579"
+              required="true"
+              aria-invalid="true"
+              aria-required="true"
+              role="group"
+            >
+              <div id="checkbox-id-129034812" class="dds__checkbox">
+                <label
+                  id="checkbox-label-129034812"
+                  class="dds__checkbox__label"
+                  for="checkbox-control-129034812"
+                >
+                  <input
+                    type="checkbox"
+                    tabindex="0"
+                    id="checkbox-control-129034812"
+                    name="checkbox-control-name-129034812"
+                    class="dds__checkbox__input"
+                    value="1"
+                    required="true"
+                  />
+                  <span>Desktops</span>
+                </label>
+              </div>
+              <div id="checkbox-id-523498204" class="dds__checkbox">
+                <label
+                  id="checkbox-label-523498204"
+                  class="dds__checkbox__label"
+                  for="checkbox-control-523498204"
+                >
+                  <input
+                    type="checkbox"
+                    tabindex="0"
+                    id="checkbox-control-523498204"
+                    name="checkbox-control-name-523498204"
+                    class="dds__checkbox__input"
+                    value="2"
+                    required="true"
+                  />
+                  <span>Notebooks</span>
+                </label>
+              </div>
+              <div id="checkbox-id-897731243" class="dds__checkbox">
+                <label
+                  id="checkbox-label-897731243"
+                  class="dds__checkbox__label"
+                  for="checkbox-control-897731243"
+                >
+                  <input
+                    type="checkbox"
+                    tabindex="0"
+                    id="checkbox-control-897731243"
+                    name="checkbox-control-name-897731243"
+                    class="dds__checkbox__input"
+                    value="3"
+                    required="true"
+                  />
+                  <span>Servidores</span>
+                </label>
+              </div>
+              <div
+                id="checkbox-error-468930579"
+                class="dds__invalid-feedback dds__checkbox__error-text"
+                aria-live="polite"
+              >
+                <span
+                  class="dds__icon dds__icon--alert-error dds__error-text__icon"
+                  aria-hidden="true"
+                ></span>
+                Erro no texto
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="flex flex-col w-full gap-5">
+    <!-- Seção direita com layout flex em coluna e espaçamento -->
+    <div class="linhaMontagem">
+      <h2 class="mb-3 font-light">Linhas de Montagem</h2>
+    </div>
+    <!-- Título da seção de busca -->
+    <div class="flex flex-col gap-y-3">
+      <!-- Container para a busca com layout flex em coluna -->
+      <div class="searchBar flex flex-row w-full justify-between items-center">
+        <div
+          class="dds__search"
+          id="search-107457371"
+          data-dds="search"
+          role="search"
+        >
+          <!-- Campo de busca com identificador e função de busca -->
+          <label
+            id="search-label-664840308"
+            for="search-control-664840308"
+            class="dds__label"
+            >Buscar Linhas de Montagem</label
+          >
+          <!-- Rótulo do campo de busca -->
+          <div
+            class="searchbarAddButton flex-wrap 2xl:flex-nowrap flex flex-row w-full justify-between items-center gap-4"
+          >
+            <div class="dds__search__wrapper w-full">
+              <!-- Wrapper do campo de busca -->
+              <input
+                type="search"
+                class="dds__search__control"
+                name="search-control-664840308"
+                id="search-control-664840308"
+                autocomplete="off"
+                placeholder="Pesquise aqui"
+                aria-labelledby="search-label-664840308"
+              />
+              <!-- Campo de entrada para a busca -->
+            </div>
+            <button
+              class="dds__button 2xl:min-w-[400px] h-auto max-lg:flex-1"
+              type="button"
+              onclick="window.location.href='/addAssembleLine'"
+            >
+              <svg
+                class="dds__icon dds__icon--add-sqr dds__button__icon--start md:flex hidden"
+                focusable="false"
+              >
+                <use xlink:href="#dds__icon--add-sqr"></use>
+              </svg>
+              <span class="flex">Adicionar Linha</span>
+            </button>
+            <button
+              class="dds__button dds__button--secondary 2xl:min-w-[400px] max-lg:flex-1 h-auto"
+              type="button"
+              onclick="window.location.href='/addTask'"
+            >
+              <svg
+                class="dds__icon dds__icon--import dds__button__icon--start md:flex hidden"
+                focusable="false"
+              >
+                <use xlink:href="#dds__icon--import"></use>
+              </svg>
+              <span class="flex font-medium">Associar Manual</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex justify-between">
+        <!-- Container para o número de resultados e dropdown, layout flexível -->
+        <span class="mt-0" id="search_number"></span>
+        <!-- Span para exibir o número de resultados -->
+        <div class="dds__dropdown" data-dds="dropdown" id="dropdown-184116988">
+          <!-- Container do dropdown com identificador -->
+          <div class="dds__dropdown__input-container">
+            <!-- Container para o input do dropdown -->
+            <label
+              id="dropdown-label-497973251"
+              for="dropdown-control-497973251"
+              class="dds__label"
+              >Ordenar por:</label
+            >
+            <!-- Rótulo do dropdown -->
+            <div
+              class="dds__dropdown__input-wrapper"
+              autocomplete="off"
+              aria-haspopup="listbox"
+              aria-controls="dropdown-popup-497973251"
+            >
+              <!-- Wrapper do input do dropdown com atributos de acessibilidade -->
+              <input
+                id="dropdown-control-497973251"
+                name="dropdown-name"
+                type="text"
+                role="combobox"
+                class="dds__dropdown__input-field"
+                aria-labelledby="dropdown-label-497973251 dropdown-helper-497973251"
+                autocomplete="off"
+                aria-expanded="false"
+                aria-controls="dropdown-popup-list-497973251"
+              />
+              <!-- Campo de entrada do dropdown -->
+            </div>
+          </div>
+          <div
+            id="dropdown-popup-497973251"
+            class="dds__dropdown__popup dds__dropdown__popup--hidden"
+            role="presentation"
+            tabindex="-1"
+          >
+            <!-- Popup do dropdown, inicialmente oculto -->
+            <ul
+              class="dds__dropdown__list"
+              role="listbox"
+              tabindex="-1"
+              id="dropdown-popup-list-497973251"
+            >
+              
+              <li class="dds__dropdown__item" role="none">
+                <button
+                  type="button"
+                  class="dds__dropdown__item-option"
+                  role="option"
+                  data-selected="false"
+                  data-value="3"
+                  tabindex="-1"
+                >
+                  <!-- Opção 3 do dropdown -->
+                  <span class="dds__dropdown__item-label">Mais recentes</span>
+                </button>
+              </li>
+              <li class="dds__dropdown__item" role="none">
+                <button
+                  type="button"
+                  class="dds__dropdown__item-option"
+                  role="option"
+                  data-selected="false"
+                  data-value="4"
+                  tabindex="-1"
+                >
+                  <!-- Opção 4 do dropdown -->
+                  <span class="dds__dropdown__item-label">Mais antigos</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="assembleLine-gallery"
+      style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr))"
+      class="grid gap-4 w-full justify-center items-center"
+    >
+      <!-- Galeria de manuais com layout de grade responsivo -->
+      <div
+        class="dds__loading-indicator flex flex-col w-full justify-center items-center"
+      >
+        <div
+          class="dds__loading-indicator__label w-full flex flex-row items-center justify-center"
+          aria-live="polite"
+        >
+          Carregando Linhas de montagem
+        </div>
+        <div
+          class="dds__loading-indicator__spinner w-full flex flex-row items-center justify-center"
+        ></div>
+      </div>
+      <!-- Mensagem de carregamento dos produtos -->
+    </div>
+  </div>
+</div>
+
+<script>
+  tipoDeProdutoSelected = [];
+
+  const tiposDeProduto = [
+    { id: 1, name: 'Desktop' },
+    { id: 2, name: 'Notebook' },
+    { id: 3, name: 'Servidor' },
+  ];
+
+  const accordionFilter = document.getElementById('accordion-filter');
+  DDS.Accordion(accordionFilter, { independent: true });
+
+  accordionFilter.querySelectorAll('.dds__accordion').forEach((child) => {
+    DDS.Accordion(child, { independent: true });
+  });
+
+  const adicionarButton = document.querySelector('.adicionarButton');
+
+    // Obtém o valor do input de pesquisa (id search-control-664840308) ao mudar
+    const inputSearch = document.getElementById('search-control-664840308');
+    let listaDeAssembleLines = [];
+    let searchValue = '';
+    let order = 0;
+    DDS.Search(inputSearch);
+
+    // Adiciona um evento de escuta para o evento de submissão da pesquisa
+    inputSearch.addEventListener('ddsSearchSubmitEvent', (event) => {
+      searchValue = event.target.value;
+      renderAssembleLines();
+    });
+
+  const dropdownOrder = document.getElementById('dropdown-184116988');
+  const orderAPI = DDS.Dropdown(dropdownOrder, { selectAll: false });
+  orderAPI.selectOption('4');
+
+  // Adiciona um evento de escuta para a mudança de seleção no dropdown
+  dropdownOrder.addEventListener('ddsDropdownSelectionChangeEvent', (event) => {
+    order = parseInt(event.detail.value);
+    renderAssembleLines();
+  });
+
+    // Ao carregar a página, busca todas as assembleLines
+    const fetchAssembleLines = async () => {
+      try {
+        const fetchResult = await fetch('/assembleLines');
+        if (!fetchResult.ok) {
+          throw new Error(
+            `Erro ao buscar assembleLines: ${fetchResult.status} ${fetchResult.statusText}`
+          );
+        }
+        const assembleLines = await fetchResult.json();
+        listaDeAssembleLines = assembleLines;
+        renderAssembleLines();
+      } catch (error) {
+        console.error('Error fetching assembleLines:', error);
+      }
+    };
+
+    // Função para buscar os dados da query
+    const fetchQuery = async () => {
+      try {
+        const response = await fetch('/assembleLines');
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(
+            `Erro ao buscar query: ${response.status} ${response.statusText}`
+          );
+        }
+        const queryData = data;
+      } catch (error) {
+        console.error('Erro ao buscar query:', error);
+      }
+    };
+
+    // Função assíncrona para deletar uma linha de montagem pelo ID
+    async function deleteAssembleLine(id) {
+      try {
+        const response = await fetch(`/assembleLines/${id}`, {
+          method: 'DELETE',
+        });
+        if (response.ok) {
+          const deletedElement = document.getElementById(`assembleLine-${id}`);
+          if (deletedElement) {
+            deletedElement.remove();
+            location.reload();
+          } else {
+            console.warn(
+              `Elemento com id assembleLine-${id} não encontrado no DOM.`
+            );
+          }
+        } else {
+          console.error('Erro ao excluir a linha de montagem');
+        }
+      } catch (err) {
+        console.error('Erro ao deletar linha de montagem:', err);
+      }
+    }
+
+    // Função para renderizar as assembleLines
+    const renderAssembleLines = async () => {
+      const assembleLineGallery = document.getElementById(
+        'assembleLine-gallery'
+      );
+      assembleLineGallery.innerHTML = '';
+      assembleLineGallery.classList.add('grid', 'gap-4', 'w-auto'); // Adiciona classes de grid, espaçamento e largura automática
+
+      // Usar uma condicional no listaDeAssembleLines para criar um texto de not found
+      const filteredAssembleLines = listaDeAssembleLines.filter(
+        (assembleLine) => {
+          if (searchValue.trim() === '') return true;
+
+          return assembleLine.name
+            .toLowerCase()
+            .includes(searchValue.toLowerCase());
+        }
+      );
+
+  
+      
+      if (order === 3) {
+        filteredAssembleLines.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+      } else if (order === 4) {
+        filteredAssembleLines.sort(
+          (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+        );
+      }
+
+      const filteredAssembleLines2 = filteredAssembleLines.filter((assembleLine) =>{
+        if (tipoDeProdutoSelected.length === 0) return true;
+
+        if (
+          assembleLine?.productType ===
+          tiposDeProduto[0].name
+        ) {
+          return tipoDeProdutoSelected.includes(1);
+        }
+
+        if (
+          assembleLine?.productType ===
+          tiposDeProduto[1].name
+        ) {
+          return tipoDeProdutoSelected.includes(2);
+        }
+
+        if (
+          assembleLine?.productType ===
+          tiposDeProduto[2].name
+        ) {
+          return tipoDeProdutoSelected.includes(3);
+        }
+
+        return false;
+      });
+
+
+
+      const searchNumberSpan = document.getElementById('search_number');
+      searchNumberSpan.innerHTML = `Resultado da pesquisa: ${filteredAssembleLines2.length}`;
+
+      const users = await fetch('/users').then((res) => res.json());
+
+      filteredAssembleLines2.forEach((assembleLine) => {
+        const assembleLineElement = document.createElement('div');
+        assembleLineElement.id = `assembleLine-${assembleLine.id}`;
+        assembleLineElement.classList.add(
+          'flex',
+          'flex-col',
+          'bg-gray-100',
+          'justify-center',
+          'items-center',
+          'shadow-sm',
+          'p-8'
+        );
+        assembleLineElement.innerHTML = `
+          <div
+            id="modal-${assembleLine.id}"
+            role="dialog"
+            data-dds="modal"
+            class="dds__modal"
+            aria-labelledby="modal-headline-${assembleLine.id}"
+        >
+            <div class="dds__modal__content">
+            <div class="dds__modal__header">
+                <h3 class="dds__modal__title" id="modal-headline-${assembleLine.id}">
+                Excluir Manual
+                </h3>
+            </div>
+            <div id="modal-body-${assembleLine.id}" class="dds__modal__body">
+                <p>
+                    Você tem certeza que deseja excluir a linha de montagem "<strong>${assembleLine.name}</strong>"?
+                    Esta ação não pode ser desfeita.
+                </p>
+            </div>
+            <div class="dds__modal__footer">
+                <button
+                class="dds__button dds__button--secondary dds__button--md"
+                type="button"
+                id="modal-${assembleLine.id}-close"
+                name="modal-primary-button"
+                >
+                Voltar
+                </button>
+                <button
+                class="dds__button dds__button--md dds__button--destructive"
+                type="button"
+                name="modal-secondary-button"
+                id="modal-${assembleLine.id}-delete"
+                >
+                Excluir permanentemente
+                </button>
+            </div>
+            </div>
+        </div>
+        <div class="assembleLineInformation w-full flex flex-col gap-6">
+            <div class="assembleLineInformationHeader flex flex-row justify-between items-center w-full">
+                <h4 class="assembleLineInformationHeaderName m-0">${
+                  assembleLine.name
+                }</h4>
+            </div>
+
+          <div class="assembleLineInformationBody">
+              <div class="assembleLineCollaborator">
+                  <span class="dds__icon dds__icon--user-group"></span>
+                  <p>Colaboradores: ${
+                    users.filter(
+                      (user) =>
+                        user.id_associatedAssembleLine === assembleLine.id
+                    ).length
+                      ? users.filter(
+                          (user) =>
+                            user.id_associatedAssembleLine === assembleLine.id
+                        ).length
+                      : 'Nenhum'
+                  }</p>
+              </div>  
+
+                <div class="assembleLineProduct">
+                    <span class="dds__icon dds__icon--gear"></span>
+                    <p>Produto: ${assembleLine.productType}</p>
+                </div>  
+            </div> 
+                <button class="dds__button dds__button--secondary" type="button" id="edit-${assembleLine.id}-trigger">Editar</button>
+                <button class="dds__button dds__button--secondary dds__button--destructive" id="modal-${assembleLine.id}-trigger" type="button">Excluir</button>
+        </div>
+    `;
+
+        assembleLineGallery.appendChild(assembleLineElement);
+
+        const elementModal = document.getElementById(
+          `modal-${assembleLine.id}`
+        );
+
+        const modalAPI = DDS.Modal(elementModal, {
+          trigger: `#modal-${assembleLine.id}-trigger`,
+          preventBackgroundScroll: true,
+        });
+
+        const closeElement = document.getElementById(
+          `modal-${assembleLine.id}-close`
+        );
+        closeElement.addEventListener('click', () => {
+          modalAPI.close();
+        });
+
+        const deleteElement = document.getElementById(
+          `modal-${assembleLine.id}-delete`
+        );
+
+        deleteElement.addEventListener('click', async () => {
+          try {
+            deleteElement.disabled = true;
+            const deleteResult = await fetch(
+              `/assembleLine/${assembleLine.id}`,
+              {
+                method: 'DELETE',
+              }
+            );
+            deleteElement.disabled = false;
+            if (deleteResult.ok) {
+              modalAPI.close();
+              fetchAssembleLines();
+            }
+          } catch (error) {
+            console.error('Error deleting assemble line:', error);
+          }
+        });
+
+        const editarButton = document.getElementById(
+          `edit-${assembleLine.id}-trigger`
+        );
+
+      editarButton.addEventListener('click', async () => {
+        window.location.href = 'editarAssembleLine/' + assembleLine.id;
+      });
+    });
+  };
+
+    // Chama as funções para buscar assembleLines e query ao carregar a página
+    fetchAssembleLines();
+    fetchQuery();
+
+    if (typeof DDS !== 'undefined') {
+      const dropdown184116988 = document.getElementById('dropdown-184116988');
+      DDS.Dropdown(dropdown184116988, { selectAll: false });
+
+      const searchAssembleLine = document.getElementById('search-107457371');
+      DDS.Search(searchAssembleLine);
+    } else {
+      console.error(
+        'DDS não está definido. Certifique-se de que a biblioteca DDS está corretamente incluída.'
+      );
+    }
+
+    const filterCheckboxInput = document.querySelectorAll(
+    '.dds__checkbox__input'
+  );
+  filterCheckboxInput.forEach((checkbox) => {
+    checkbox.addEventListener('change', (event) => {
+
+      if (event.target.id === 'checkbox-control-129034812') {
+        if (event.target.checked) {
+          tipoDeProdutoSelected.push(1);
+        } else {
+          tipoDeProdutoSelected = tipoDeProdutoSelected.filter(
+            (item) => item !== 1
+          );
+        }
+      }
+      if (event.target.id === 'checkbox-control-523498204') {
+        if (event.target.checked) {
+          tipoDeProdutoSelected.push(2);
+        } else {
+          tipoDeProdutoSelected = tipoDeProdutoSelected.filter(
+            (item) => item !== 2
+          );
+        }
+      }
+      if (event.target.id === 'checkbox-control-897731243') {
+        if (event.target.checked) {
+          tipoDeProdutoSelected.push(3);
+        } else {
+          tipoDeProdutoSelected = tipoDeProdutoSelected.filter(
+            (item) => item !== 3
+          );
+        }
+      }
+
+      renderAssembleLines();
+    });
+  });
+  </script>
+</body>

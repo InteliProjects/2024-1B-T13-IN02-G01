@@ -1,0 +1,547 @@
+<div
+  class="flex flex-col lg:flex-row justify-between items-start w-full max-w-full px-4 md:px-12 gap-x-10"
+>
+
+  <div class="flex flex-col w-full gap-5 max-w-full">
+    <div class="flex px-3 flex-col justify-center items-center">
+      <h2 class="text-center">Gerenciar funcionários</h2>
+      <h5 class="max-w-[600px] x-auto text-center mb-4 font-light">
+        Encontre aqui a lista de funcionários cadastrados na plataforma e
+        gerencie suas permissões com facilidade
+      </h5>
+    </div>
+    <div class="mainContentDisplayForManualAdmin">
+      <div class="frame69">
+        <div class="tableRowFuncionarios">
+          <div
+            id="message-bar"
+            data-dds="message-bar"
+            class="dds__message-bar dds__message-bar--success"
+            role="dialog"
+            aria-describedby="message-bar-content-452081695"
+            aria-labelledby="message-bar-title-452081695"
+          >
+            <span
+              class="dds__icon dds__icon--alert-check-cir dds__message-bar__icon"
+              aria-hidden="true"
+            ></span>
+            <div
+              id="message-bar-content-452081695"
+              class="dds__message-bar__content"
+            >
+              <b id="message-bar-title-452081695">Sucesso:</b>
+              Status da tabela foi devidamente atualizado
+            </div>
+          </div>
+          <div
+            class="dds__table dds__table--sticky-header max-w-[700px]"
+            role="table"
+            id="table-496070988"
+          ></div>
+          <div
+            class="dds__pagination"
+            data-dds="pagination"
+            id="table-496070988-pagination"
+            role="navigation"
+          >
+            <div class="dds__pagination__summary">
+              <label
+                class="dds__pagination__per-page-label"
+                for="pagination-per-page-table-496070988-pagination"
+                >Funcionários por página</label
+              >
+              <div
+                class="dds__select dds__select--sm dds__pagination__per-page-select"
+                data-dds="select"
+                id="select-126697254"
+              >
+                <div class="dds__select__wrapper">
+                  <select
+                    id="select-control-126697254"
+                    aria-label="Select label"
+                    class="dds__select__field"
+                    aria-describedby="select-helper-126697254"
+                    required="true"
+                  >
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                </div>
+              </div>
+              <div class="dds__pagination__range" aria-live="polite">
+                <span class="dds__pagination__range-start"></span>
+                –
+                <span class="dds__pagination__range-end"></span>
+                <span class="dds__pagination__range-total-label">
+                  de
+                  <span class="dds__pagination__range-total"></span>
+                  itens
+                </span>
+              </div>
+            </div>
+            <div class="dds__pagination__nav">
+              <button
+                class="dds__button dds__button--tertiary dds__button--sm dds__button__icon dds__pagination__first-page"
+                type="button"
+                aria-label="First page"
+              ></button>
+              <button
+                class="dds__button dds__button--tertiary dds__button--sm dds__button__icon dds__pagination__prev-page"
+                type="button"
+                aria-label="Página Anterior"
+              >
+                <span class="dds__pagination__prev-page-label">Anterior</span>
+              </button>
+              <div class="dds__pagination__page-range">
+                <label
+                  class="dds__pagination__page-range-label"
+                  for="pagination-current-page-table-496070988-pagination"
+                  >Página</label
+                >
+                <div
+                  id="text-input-container-589870994"
+                  class="dds__input-text__container dds__input-text__container--sm"
+                >
+                  <div
+                    class="dds__input-text__wrapper dds__pagination__page-range-current-wrapper"
+                  >
+                    <input
+                      type="text"
+                      class="dds__input-text dds__pagination__page-range-current"
+                      name="text-input-control-name-589870994"
+                      id="pagination-current-page-table-496070988-pagination"
+                      required="true"
+                      aria-labelledby="text-input-label-589870994 text-input-helper-589870994"
+                    />
+                  </div>
+                </div>
+                <div class="dds__pagination__page-range-total-label">
+                  de&nbsp;
+                  <span class="dds__pagination__page-range-total"></span>
+                </div>
+              </div>
+              <button
+                class="dds__button dds__button--tertiary dds__button--sm dds__button__icon dds__pagination__next-page"
+                type="button"
+                aria-label="Next page"
+              >
+                <span class="dds__pagination__next-page-label">Próximo</span>
+              </button>
+              <button
+                class="dds__button dds__button--tertiary dds__button--sm dds__button__icon dds__pagination__last-page"
+                type="button"
+                aria-label="Last page"
+              ></button>
+            </div>
+          </div>
+          <div
+            id="delete-modal"
+            role="dialog"
+            data-dds="modal"
+            class="dds__modal"
+            data-trigger="delete"
+            aria-labelledby="modal-headline-179166643"
+          >
+            <div class="dds__modal__content">
+              <div class="dds__modal__header">
+                <h3 class="dds__modal__title" id="modal-headline-179166643">
+                  Desativar colaboradores selecionados
+                </h3>
+              </div>
+              <div id="modal-body-179166643" class="dds__modal__body">
+                <p>
+                  Você tem certeza que deseja desativar essas linhas? Essa ação
+                  implica na desativação imediata de todos os colaboradores
+                  selecionados removendo o acesso deles ao sistema.
+                </p>
+              </div>
+              <div class="dds__modal__footer">
+                <button
+                  id="btModalCancelDelete"
+                  class="dds__button dds__button dds__button dds__button--secondary"
+                  type="button"
+                >
+                  Cancelar
+                </button>
+                <button
+                  id="btModalDelete"
+                  class="dds__button dds__button dds__button--destructive dds__button"
+                  type="button"
+                >
+                  Desativar
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            id="activate-modal"
+            role="dialog"
+            data-dds="modal"
+            class="dds__modal"
+            data-trigger="activate"
+            aria-labelledby="modal-headline-179166644"
+          >
+            <div class="dds__modal__content">
+              <div class="dds__modal__header">
+                <h3 class="dds__modal__title" id="modal-headline-179166644">
+                  Re-ativar colaboradores selecionados
+                </h3>
+              </div>
+              <div id="modal-body-179166644" class="dds__modal__body">
+                <p>
+                  Você tem certeza que deseja re-ativar esse funcionário? Essa
+                  ação implica na permissão imediata de acesso ao sistema.
+                </p>
+              </div>
+              <div class="dds__modal__footer">
+                <button
+                  id="btModalCancelActivate"
+                  class="dds__button dds__button dds__button dds__button--secondary"
+                  type="button"
+                >
+                  Cancelar
+                </button>
+                <button
+                  id="btModalActivate"
+                  class="dds__button dds__button dds__button"
+                  type="button"
+                >
+                  Ativar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentSelectedRows = [];
+  let currentTableInstance = null;
+  let isSelectedRows = false;
+
+  const deleteModalElement = document.getElementById('delete-modal');
+  const deleteModalAPI = DDS.Modal(deleteModalElement, { triggerId: 'delete' });
+  const activateModalElement = document.getElementById('activate-modal');
+  const activateModalAPI = DDS.Modal(activateModalElement, {
+    triggerId: 'activate',
+  });
+  const messageBarElement = document.getElementById('message-bar');
+  const messageBarAPI = DDS.MessageBar(messageBarElement, {
+    startShow: false,
+  });
+
+  const deleteSelectedRows = async () => {
+    const dataInstance = currentTableInstance.getData();
+
+    const ids = currentSelectedRows.map((row) => row.id);
+
+    await fetch('/users/disable', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ids }),
+    });
+
+    currentTableInstance.deselectAllRows();
+    messageBarAPI.show();
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
+
+  const activateSelectedRows = async () => {
+    const dataInstance = currentTableInstance.getData();
+
+    const ids = currentSelectedRows.map((row) => row.id);
+
+    await fetch('/users/enable', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ids }),
+    });
+
+    currentTableInstance.deselectAllRows();
+    messageBarAPI.show();
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
+
+  const bulkActionMockUpdateInactive = (tableAPI) => {
+    isSelectedRows = tableAPI.getSelectedRows().length ? true : false;
+    tableAPI.updateBulkAction('delete', { inactive: !isSelectedRows });
+  };
+
+  const goToAdicionarFuncionario = () => {
+    window.location.href = '/adicionarFuncionario';
+  };
+
+  const openDeleteConfirmationModal = ({ selectedRows, tableInstance }) => {
+    currentSelectedRows = selectedRows;
+    currentTableInstance = tableInstance;
+    deleteModalAPI.open();
+  };
+
+  const openActivateConfirmationModal = ({ selectedRows, tableInstance }) => {
+    currentSelectedRows = selectedRows;
+    currentTableInstance = tableInstance;
+    activateModalAPI.open();
+  };
+
+  document
+    .getElementById('btModalDelete')
+    .addEventListener('click', async () => {
+      await deleteSelectedRows();
+      deleteModalAPI.close();
+    });
+  document
+    .getElementById('btModalCancelDelete')
+    .addEventListener('click', () => deleteModalAPI.close());
+
+  document
+    .getElementById('btModalActivate')
+    .addEventListener('click', async () => {
+      await activateSelectedRows();
+      activateModalAPI.close();
+    });
+  document
+    .getElementById('btModalCancelActivate')
+    .addEventListener('click', () => activateModalAPI.close());
+
+  let data = [];
+  const columns = [
+    { value: 'Nome' },
+    { value: 'ID' },
+    { value: 'Email' },
+    { value: 'Nível de Acesso' },
+    { value: 'Linha de Montagem' },
+    { value: 'Editar' },
+  ];
+
+  let listaDeUsuarios = [];
+  const fetchUsers = async () => {
+    try {
+      // Faz uma requisição para a rota '/user' para obter a lista de usuários
+      const fetchResult = await fetch('/user');
+      listaDeUsuarios = await fetchResult.json(); // Converte a resposta em JSON e armazena na lista de usuários
+      const sortLabels = {
+        unsorted: 'Remove a ordenação da coluna',
+        ascending: 'Ordena a coluna em ordem crescente',
+        descending: 'Ordena a coluna em ordem decrescente',
+      };
+      data = listaDeUsuarios.map((user) => ({
+        columns: [
+          { value: user.name, sortBy: 'unsorted', sortLabels: sortLabels },
+          {
+            value: user.isActive
+              ? `<button>${user.id}</button>`
+              : `
+            <button style="color: red;">${user.id}</button>
+            `,
+            fit: true,
+            sortBy: 'unsorted',
+            sortLabels: sortLabels,
+            render: (labelElement, data) => {
+              const htmlString = `<button type="submit" class="dds__button">${data.value}</button>`;
+              labelElement.innerHTML = htmlString;
+            },
+            width: 50,
+          },
+          { value: user.email },
+          { value: user.accessLevel == '1' ? 'Montador' : 'Engenheiro' },
+          {
+            value: user.assembleLineName || 'N/A',
+          },
+          {
+            value: `<a href="/editarFuncionario/${user.id}">Editar</a>`,
+          },
+        ],
+        selectable: true,
+        id: user.id,
+      }));
+
+      const element = document.getElementById('table-496070988');
+      DDS.Table(element, {
+        localization: {
+          selectedRowsTagLabel: {
+            one: 'Funcionário selecionado: {count}',
+            other: 'Funcionários selecionados: {count}',
+          },
+          bulkActionsMoreMenuLabel: 'Mais ações',
+          changeSort: 'Alterar ordenação',
+          collapseRow: 'Recolher linha',
+          columnFilterAriaLabel: 'Filtrar entrada da coluna {column}',
+          columnFilterClearAriaLabel: 'Limpar filtro da coluna {column}',
+          deselectAllLabel: 'Desmarcar todos',
+          expandRow: 'Expandir linha',
+          pinColumn: 'Fixar coluna',
+          searchPlaceholder: 'Pesquisar',
+          selectableCheckboxLabelDeselect: 'Deselecionar linha {rowIndex}',
+          selectableCheckboxLabelSelect: 'Selecionar linha {rowIndex}',
+          selectAllLabel: 'Selecionar todos',
+          selectedRowsTagDismissAriaLabel: 'Desmarcar linhas selecionadas',
+          srLoadingLabel: 'Carregando...',
+          unpinColumn: 'Desafixar coluna',
+        },
+        data,
+        columns,
+        pinnable: true,
+        subscribe: ['table-496070988-pagination'],
+        pagination: { currentPage: 1, rowsPerPage: 25 },
+        selectableRows: true,
+        search: true,
+        loading: true,
+        noRows: {
+          title: 'Nenhum funcionário disponível',
+          description: 'Conteúdo não encontrado',
+          render: undefined,
+        },
+        bulkActions: [
+          {
+            id: 'add',
+            content: `<span class="dds__icon dds__icon--user-add dds__button__icon--start dds__table__bulk-action__more-menu__icon" aria-hidden="true"></span>Adicionar`,
+            action: goToAdicionarFuncionario,
+            insideMoreMenu: false,
+          },
+          {
+            id: 'activate',
+            content: `<span class="dds__icon dds__icon--user-unlock dds__button__icon--start dds__table__bulk-action__more-menu__icon" aria-hidden="true"></span>Ativar`,
+            inactive: false,
+            action: openActivateConfirmationModal,
+          },
+          {
+            id: 'delete',
+            content: `<span class="dds__icon dds__icon--user-lock dds__button__icon--start dds__table__bulk-action__more-menu__icon" aria-hidden="true"></span>Desativar`,
+            inactive: false,
+            action: openDeleteConfirmationModal,
+          },
+        ],
+      });
+
+      const paginationElement = document.getElementById(
+        'table-496070988-pagination'
+      );
+      const paginationAPI = DDS.Pagination(paginationElement, {
+        subscribe: ['table-496070988'],
+      });
+
+      const updateInactive = () => {
+        // bulkActionMockUpdateInactive(tableAPI);
+      };
+
+      // Selectable Rows event listeners
+      document.addEventListener('ddsTableRowSelectedEvent', updateInactive);
+      document.addEventListener('ddsTableRowDeselectedEvent', updateInactive);
+      document.addEventListener(
+        'ddsTableHeaderSelectedAllEvent',
+        updateInactive
+      );
+      document.addEventListener(
+        'ddsTableHeaderDeselectedAllEvent',
+        updateInactive
+      );
+      document.addEventListener(
+        'ddsTableRibbonTagDeselectedAllEvent',
+        updateInactive
+      );
+
+      // renderUsers(); // Chama a função para renderizar os usuários na interface
+    } catch (error) {
+      console.error('Error fetching users:', error); // Log de erro em caso de falha na busca
+    }
+  };
+  fetchUsers();
+
+  // Seleciona o elemento com o ID "accordion-208841405" e inicializa um acordeão DDS com opções específicas
+  const elementAccordion1 = document.getElementById('accordion-208841405');
+  DDS.Accordion(elementAccordion1, { independent: true, animation: 'none' });
+
+  // Seleciona o elemento com o ID "accordion-208841406" e inicializa um acordeão DDS com opções específicas
+  const element2 = document.getElementById('accordion-208841406');
+  DDS.Accordion(element2, { independent: true, animation: 'none' });
+
+  // Seleciona o elemento com o ID "accordion-208841407" e inicializa um acordeão DDS com opções específicas
+  const element3 = document.getElementById('accordion-208841407');
+  DDS.Accordion(element3, { independent: true, animation: 'none' });
+
+  // Seleciona o elemento com o ID "accordion-208841408" e inicializa um acordeão DDS com opções específicas
+  const element4 = document.getElementById('accordion-208841408');
+  DDS.Accordion(element4, { independent: true, animation: 'none' });
+
+  // Declaração de variáveis para armazenar a lista de usuários e o valor da busca
+  // let searchValue = '';
+
+  // Ao carregar a página, busca todos os usuários
+
+  // Função para deletar um usuário
+  const deleteUser = async (userId) => {
+    try {
+      // Exibe um alerta de confirmação para o usuário
+      const confirmed = window.confirm(
+        'Tem certeza de que deseja desativar este usuário?'
+      );
+      if (!confirmed) return; // Se não confirmado, sai da função
+      const deleteResult = await fetch(`/users/${userId}`, {
+        method: 'DELETE', // Faz uma requisição DELETE para desativar o usuário
+      });
+      if (deleteResult.ok) {
+        // Remove o usuário da lista local após a deleção bem-sucedida
+        listaDeUsuarios = listaDeUsuarios.filter((user) => user.id !== userId);
+        renderUsers(); // Renderiza novamente a lista de usuários
+        window.location.reload(); // Recarrega a página
+      } else {
+        console.error('Failed to delete user'); // Log de erro em caso de falha na deleção
+      }
+    } catch (error) {
+      console.error('Error deleting user:', error); // Log de erro em caso de exceção na deleção
+    }
+  };
+
+  // Função para renderizar os usuários na tabela
+  const renderUsers = () => {
+    const usersTableBody = document.getElementById('users-table-body');
+    usersTableBody.innerHTML = ''; // Limpa o conteúdo da tabela
+
+    // Insere as linhas dos usuários na tabela
+    filteredUsers.forEach((user) => {
+      const userRow = document.createElement('tr');
+      const assembleLineName = user.assemblelinename
+        ? user.assemblelinename
+        : 'N/A';
+      userRow.innerHTML = `
+                <th scope="row">${user.name}</th>
+                <td>${user.id}</td>
+                <td>${user.email}</td>
+                <td>${user.accessLevel}</td>
+                <td>${user.assembleLineName}</td>
+                <td>
+                    <a class="editar" href="/users/${user.id}">Editar</a>
+                </td>
+                <td class="flex flex-col justify-center items-center">
+                    <button class="desativar dds__button__icon" data-user-id="${user.id}">
+                      <span class="dds__icon  dds__icon--user-disable"></span>
+                    </button>
+                </td>
+              `;
+      usersTableBody.appendChild(userRow); // Adiciona a linha à tabela
+    });
+
+    // Adiciona os eventos de clique para os botões "Desativar"
+    const desativarButtons = document.querySelectorAll('.desativar');
+    desativarButtons.forEach((button) => {
+      button.addEventListener('click', async (event) => {
+        const userId = event.target.getAttribute('data-user-id'); // Obtém o ID do usuário a partir do atributo data
+      });
+    });
+  };
+</script>

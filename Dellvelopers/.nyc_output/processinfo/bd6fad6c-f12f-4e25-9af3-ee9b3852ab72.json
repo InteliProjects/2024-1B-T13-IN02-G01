@@ -1,0 +1,29 @@
+{
+  "parent": null,
+  "pid": 72852,
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\node_modules\\mocha\\bin\\mocha.js",
+    "-v",
+    "test/lifecycle.test.js",
+    "test/**/*.test.js"
+  ],
+  "execArgv": [],
+  "cwd": "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers",
+  "time": 1718075848756,
+  "ppid": 74556,
+  "coverageFilename": "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\.nyc_output\\bd6fad6c-f12f-4e25-9af3-ee9b3852ab72.json",
+  "externalId": "",
+  "uuid": "bd6fad6c-f12f-4e25-9af3-ee9b3852ab72",
+  "files": [
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\FavoritesController.js",
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\AdditionalFilesController.js",
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\AssembleLinesController.js",
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\AuthController.js",
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\HandbooksController.js",
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\KanbanController.js",
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\TasksController.js",
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\UsersController.js",
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\ViewController.js"
+  ]
+}

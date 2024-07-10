@@ -1,0 +1,550 @@
+<div id="kanban-maincontent" class="px-4 md:px-12">
+  <div id="progress-content; flex-col items-center justify-center">
+    <div class="kanban-table flex-col justify-center">
+      <div class="kanban-header flex-row items-start justify-between w-full">
+        <h2>Meu progresso</h2>
+      </div>
+      <div class="kanban-tabs flex justify-center mt-5">
+        <div id="tabs-284519450" class="dds__tabs w-full" data-dds="tabs">
+          <div class="dds__tabs__list-container">
+            <ul
+              class="dds__tabs__list dds__tabs__list--overflow"
+              role="tablist"
+              aria-orientation="horizontal"
+            >
+              <li role="none">
+                <button
+                  id="tab-basic-0"
+                  class="dds__tabs__tab"
+                  role="tab"
+                  aria-controls="tab-basic-0-pane"
+                  aria-selected="true"
+                  tabindex="0"
+                >
+                  <span class="dds__tabs__tab__label" title="Pendentes"
+                    >Pendentes</span
+                  >
+                </button>
+              </li>
+              <li role="none">
+                <button
+                  id="tab-basic-1"
+                  class="dds__tabs__tab"
+                  role="tab"
+                  aria-controls="tab-basic-1-pane"
+                  aria-selected="false"
+                  tabindex="-1"
+                >
+                  <span class="dds__tabs__tab__label" title="Finalizados"
+                    >Finalizados</span
+                  >
+                </button>
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="dds__tabs__pane-container">
+            <div
+              id="tab-1-0-pane"
+              class="dds__tabs__pane"
+              role="tabpanel"
+              tabindex="0"
+              aria-labelledby="tab-1-0"
+              aria-hidden="false"
+            >
+              teste
+            </div>
+            <div
+              id="tab-1-1-pane"
+              class="dds__tabs__pane"
+              role="tabpanel"
+              tabindex="-1"
+              aria-labelledby="tab-1-1"
+              aria-hidden="true"
+            >
+              teste1
+            </div>
+          </div> -->
+
+          <div class="kanban-head flex items-end justify-between mt-5">
+            <div class="kanban-info">
+              <div class="kanban-todo">
+                <span class="mt-0" id="todo-cards"></span>
+              </div>
+              <div class="kanban-refreshed">
+                <span class="mt-0" id="refreshed-cards"></span>
+              </div>
+              <div class="kanban-finished">
+                <span class="mt-0" id="finished-cards"></span>
+              </div>
+              <div class="kanban-refreshed">
+                <span class="mt-0" id="refreshed-cards"></span>
+              </div>
+            </div>
+
+            <div class="kanban-sorting flex items-center">
+              <div
+                class="dds__dropdown"
+                data-dds="dropdown"
+                id="dropdown-300244603"
+              >
+                <div class="dds__dropdown__input-container">
+                  <label
+                    id="dropdown-label-155133622"
+                    for="dropdown-control-155133622"
+                    class="dds__label"
+                    >Ordenar por:</label
+                  >
+                  <div
+                    class="dds__dropdown__input-wrapper"
+                    autocomplete="off"
+                    aria-haspopup="listbox"
+                    aria-controls="dropdown-popup-155133622"
+                  >
+                    <input
+                      id="dropdown-control-155133622"
+                      name="dropdown-name"
+                      type="text"
+                      role="combobox"
+                      class="dds__dropdown__input-field"
+                      aria-labelledby="dropdown-label-155133622 dropdown-helper-155133622"
+                      autocomplete="off"
+                      aria-expanded="false"
+                      aria-controls="dropdown-popup-list-155133622"
+                    />
+                  </div>
+                </div>
+                <div
+                  id="dropdown-popup-155133622"
+                  class="dds__dropdown__popup dds__dropdown__popup--hidden"
+                  role="presentation"
+                  tabindex="-1"
+                >
+                  <ul
+                    class="dds__dropdown__list"
+                    role="listbox"
+                    tabindex="-1"
+                    id="dropdown-popup-list-155133622"
+                  >
+                    <li class="dds__dropdown__item" role="none">
+                      <button
+                        type="button"
+                        class="dds__dropdown__item-option"
+                        role="option"
+                        data-selected="false"
+                        data-value="1"
+                        tabindex="-1"
+                      >
+                        <span class="dds__dropdown__item-label"
+                          >Ordem Alfabética (A-Z)</span
+                        >
+                      </button>
+                    </li>
+                    <li class="dds__dropdown__item" role="none">
+                      <button
+                        type="button"
+                        class="dds__dropdown__item-option"
+                        role="option"
+                        data-selected="false"
+                        data-value="2"
+                        tabindex="-1"
+                      >
+                        <span class="dds__dropdown__item-label"
+                          >Ordem Alfabética (Z-A)</span
+                        >
+                      </button>
+                    </li>
+                    <li class="dds__dropdown__item" role="none">
+                      <button
+                        type="button"
+                        class="dds__dropdown__item-option"
+                        role="option"
+                        data-selected="false"
+                        data-value="3"
+                        tabindex="-1"
+                      >
+                        <span class="dds__dropdown__item-label"
+                          >Mais recentes</span
+                        >
+                      </button>
+                    </li>
+                    <li class="dds__dropdown__item" role="none">
+                      <button
+                        type="button"
+                        class="dds__dropdown__item-option"
+                        role="option"
+                        data-selected="false"
+                        data-value="4"
+                        tabindex="-1"
+                      >
+                        <span class="dds__dropdown__item-label"
+                          >Mais Antigos</span
+                        >
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dds__tabs__pane-container w-full">
+            <div
+              id="tab-1-0-pane"
+              class="dds__tabs__pane w-full !grid gap-4 margin-12"
+              role="tabpanel"
+              tabindex="0"
+              aria-labelledby="tab-1-0"
+              aria-hidden="false"
+              style="
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+              "
+            ></div>
+            <div
+              id="tab-1-1-pane"
+              class="dds__tabs__pane w-full !grid gap-4 margin-12"
+              role="tabpanel"
+              tabindex="-1"
+              aria-labelledby="tab-1-1"
+              aria-hidden="true"
+              style="
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <section id="last-seen">
+        <div class="last-seen-header">
+          <h2>Visto por último:</h2>
+        </div>
+        <div class="last-seen-carousel">
+          <div data-dds="carousel" id="dds___carousel"></div>
+          <div
+            class="dds__carousel"
+            id="carousel-519190954"
+            aria-label="Carousel label"
+            role="region"
+            aria-atomic="false"
+            data-dds="carousel"
+          >
+            <div class="dds__carousel__controls" role="group">
+              <button
+                type="button"
+                class="dds__button dds__button__icon dds__button--editorial-light dds__carousel__controls__prev"
+              >
+                <span
+                  class="dds__icon dds__icon--chevron-left"
+                  aria-hidden="true"
+                ></span>
+                <span class="dds__sr-only">Manuais Anteriores</span>
+              </button>
+              <button
+                type="button"
+                class="dds__button dds__button__icon dds__button--editorial-light dds__carousel__controls__next"
+              >
+                <span
+                  class="dds__icon dds__icon--chevron-right"
+                  aria-hidden="true"
+                ></span>
+                <span class="dds__sr-only">Próximos Manuais</span>
+              </button>
+            </div>
+            <div class="dds__carousel__items-wrapper">
+              <div class="dds__carousel__track" role="presentation">
+                <div
+                  class="dds__carousel__item"
+                  role="group"
+                  aria-label="Describe the carousel item here"
+                >
+                   ACERTAR DINAMICIDADE DO LAST SEEN
+                  <div
+                  id="carousel-gallery"
+                  style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr))"
+                  class="grid gap-4 margin-12"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+    </div>
+  </div>
+</div>
+
+<script>
+  // Ativa o carrossel (DDS)
+  const carousel = document.getElementById('carousel-519190954');
+  DDS.Carousel(carousel, { itemsPerSlide: { 540: 2, 960: 3, 1440: 4 } });
+
+  // Ativa as tabs principais (DDS)
+  const tabs = document.getElementById('tabs-284519450');
+  DDS.Tabs(tabs);
+  const api = DDS.Tabs(tabs);
+
+  // Ativa o dropdown (DDS)
+  const dropdownOrder = document.getElementById('dropdown-300244603');
+  const orderAPI = DDS.Dropdown(dropdownOrder, { selectAll: false });
+  orderAPI.selectOption('4');
+
+  let { taskList, lastSeenList, finishedList } = [];
+  let order = 0;
+  var index = 0;
+  var indexFinished = 0;
+
+  dropdownOrder.addEventListener('ddsDropdownSelectionChangeEvent', (event) => {
+    order = parseInt(event.detail.value);
+    renderTasks();
+  });
+
+  const unfinished = document.getElementById('tab-basic-0');
+
+  const finished = document.getElementById('tab-basic-1');
+
+  unfinished.addEventListener('click', (event) => {
+    fetchUnfinishedTasks();
+  });
+
+  finished.addEventListener('click', (event) => {
+    fetchFinishedTasks();
+    // api.setActiveTab(finished);
+  });
+
+  // FETCHS
+
+  async function fetchUnfinishedTasks() {
+    try {
+      const response = await fetch('/tasks');
+      const taskList = await response.json();
+
+      // acess progress in localstorage and check progress of handbook and if it is finished
+
+      const handbookProgress =
+        JSON.parse(localStorage.getItem('handbookProgress')) || [];
+
+      //  structure of handbookProgress is like this: [{id: 1, progress: [true, true, true, false,]}, {id: 2, progress: [true, true, true, false,]}]
+
+      const finaltaskList = taskList.filter(
+        (task) =>
+          task.isFinished === false &&
+          task.id_associatedHandbook !== null &&
+          // task.id_associatedHandbook ===
+          //   handbookProgress.find(
+          //     (handbook) => handbook.id === task.id_associatedHandbook
+          //   )?.id &&
+          !handbookProgress
+            .find((handbook) => handbook.id === task.id_associatedHandbook)
+            ?.progress.every((progress) => progress === true) &&
+          task.id_associatedAssembleLine ===
+            parseInt('<%= user.id_associatedAssembleLine %>')
+      );
+
+      renderUnfinishedTasks(finaltaskList);
+    } catch (error) {
+      console.error('Erro requisitando tasks:', error);
+    }
+  }
+
+  async function fetchFinishedTasks() {
+    try {
+      const response = await fetch('/tasks');
+      const taskList = await response.json();
+
+      const handbookProgress =
+        JSON.parse(localStorage.getItem('handbookProgress')) || [];
+
+      const finaltaskList = taskList.filter(
+        (task) =>
+          task.isFinished === false &&
+          task.id_associatedHandbook !== null &&
+          handbookProgress
+            .find((handbook) => handbook.id === task.id_associatedHandbook)
+            ?.progress.every((progress) => progress === true) &&
+          task.id_associatedAssembleLine ===
+            parseInt('<%= user.id_associatedAssembleLine %>')
+      );
+
+      renderFinishedTasks(finaltaskList);
+    } catch (error) {
+      console.error('Erro requisitando tasks:', error);
+    }
+  }
+
+  // FUNÇÃO DE RENDERIZAÇÃO DE PENDENTES
+
+  async function renderUnfinishedTasks(taskList) {
+    const clearFinished = document.getElementById('tab-1-1-pane');
+    clearFinished.innerHTML = '';
+
+    const clearFinishedCardsInfo = document.getElementById('finished-cards');
+    clearFinishedCardsInfo.innerHTML = '';
+
+    const taskGallery = document.getElementById('tab-1-0-pane'); // Obtém o elemento da galeria de tarefas
+    taskGallery.innerHTML = ''; // Limpa o conteúdo da galeria
+
+    const filteredTasks = [...taskList]; // Cria uma cópia da lista de tarefas para ordenar
+
+    if (order === 1) {
+      filteredTasks.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (order === 2) {
+      filteredTasks.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (order === 3) {
+      filteredTasks.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+    } else if (order === 4) {
+      filteredTasks.sort(
+        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+      );
+    }
+
+    index = 0;
+
+    const handbooks = await fetch(`/handbooks`).then((response) =>
+      response.json()
+    );
+
+    const assembleLines = await fetch(`/assembleLines`).then((response) =>
+      response.json()
+    );
+
+    taskList.forEach((task) => {
+      const taskElement = document.createElement('div');
+      taskElement.classList.add(
+        'flex', // Adiciona classe flex
+        'flex-col', // Adiciona classe flex-col
+        'bg-gray-100', // Adiciona classe bg-gray-100
+        'justify-center', // Adiciona classe justify-center
+        'items-center', // Adiciona classe items-center
+        'shadow-sm', // Adiciona classe shadow-sm
+        'p-8' // Adiciona classe p-8
+      );
+
+      const dataHandbook = handbooks.find(
+        (handbook) => handbook.id === task.id_associatedHandbook
+      );
+
+      taskElement.innerHTML = `
+      <div class="taskTaskImage w-full flex items-center justify-center py-2 px-4">
+        <img src="/images/productsImages/${dataHandbook.images}" alt="Imagem do Manual" class="max-w-[200px] mb-3 taskTaskImageSelector w-full" />
+      </div>
+      <div class="taskTaskInformation w-full flex flex-col gap-6">
+        <div class="taskTaskInformationHeader flex flex-row justify-between items-center w-full">
+          <h5 class="taskTaskInformationHeaderName m-0">${dataHandbook.name}</h5>
+          <button class="favoriteButton">
+            <img src="../images/favoritedHeart.svg" alt="Favoritar" class="dds__icons dds__svg-icons" />
+          </button>
+        </div>
+      <div class="kanban-card-dueto">
+        <img src="" />Prioridade: ${task.priority}
+      </div>
+      <div class="kanban-card-assembleLine">
+        <img src="" />Linha de Montagem: ${dataHandbook.id_associatedAssembleLine?.name || assembleLines.find((assembleLine) => assembleLine.id == parseInt('<%=user.id_associatedAssembleLine%>'))?.name}
+      </div>
+      <div class="taskTaskInformationLink flex flex-row w-full">
+        <div class="linkButton flex flex-row justify-between items-start w-full gap-2">
+          <a class="taskTaskInformationHeaderName flex flex-row items-center w-full dds__body-3" href="/handbooks/${dataHandbook.id}">
+            Acessar Manual
+          </a>
+          <img src="../images/rightArrow.svg" alt="Seta" class="svgLinkArrowRight w-auto min-h-auto"/>
+        </div>
+      </div>
+    </div>
+      `;
+      taskGallery.appendChild(taskElement); // Adiciona o elemento à galeria
+    });
+
+    const todoCards = document.getElementById('todo-cards'); // Obtém o elemento do número de resultados
+    todoCards.innerHTML = `Manuais pendentes: ${filteredTasks.length}`; // Exibe o número de resultados
+  }
+
+  // FUNÇÃO DE RENDERIZAÇÃO DE FINALIZADOS
+
+  async function renderFinishedTasks(finishedList) {
+    const clearKanbanCards = document.getElementById('tab-1-0-pane');
+    clearKanbanCards.innerHTML = '';
+
+    const clearUnfinishedCardsInfo = document.getElementById('todo-cards');
+    clearUnfinishedCardsInfo.innerHTML = '';
+
+    const finishedGallery = document.getElementById('tab-1-1-pane'); // Obtém o elemento da galeria de tarefas
+    finishedGallery.innerHTML = ''; // Limpa o conteúdo da galeria
+
+    const finishedTasks = [...finishedList]; // Cria uma cópia da lista de tarefas para ordenar
+
+    if (order === 1) {
+      finishedTasks.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (order === 2) {
+      finishedTasks.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (order === 3) {
+      finishedTasks.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+    } else if (order === 4) {
+      finishedTasks.sort(
+        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+      );
+    }
+
+    indexFinished = 0;
+    const handbooks = await fetch(`/handbooks`).then((response) =>
+      response.json()
+    );
+
+    const assembleLines = await fetch(`/assembleLines`).then((response) =>
+      response.json()
+    );
+
+    finishedList.forEach((task) => {
+      const taskElement = document.createElement('div');
+      taskElement.classList.add(
+        'flex', // Adiciona classe flex
+        'flex-col', // Adiciona classe flex-col
+        'bg-gray-100', // Adiciona classe bg-gray-100
+        'justify-center', // Adiciona classe justify-center
+        'items-center', // Adiciona classe items-center
+        'shadow-sm', // Adiciona classe shadow-sm
+        'p-8' // Adiciona classe p-8
+      );
+
+      const dataHandbook = handbooks.find(
+        (handbook) => handbook.id === task.id_associatedHandbook
+      );
+
+      taskElement.innerHTML = `
+      <div class="taskTaskImage w-full flex items-center justify-center py-2 px-4">
+        <img src="/images/productsImages/${dataHandbook.images}" alt="Imagem do Manual" class="max-w-[200px] mb-3 taskTaskImageSelector w-full" />
+      </div>
+      <div class="taskTaskInformation w-full flex flex-col gap-6">
+        <div class="taskTaskInformationHeader flex flex-row justify-between items-center w-full">
+          <h5 class="taskTaskInformationHeaderName m-0">${dataHandbook.name}</h5>
+          <button class="favoriteButton">
+            <img src="../images/favoritedHeart.svg" alt="Favoritar" class="dds__icons dds__svg-icons" />
+          </button>
+        </div>
+      <div class="kanban-card-dueto">
+        <img src="" />Prioridade: ${task.priority}
+      </div>
+      <div class="kanban-card-assembleLine">
+        <img src="" />Linha de Montagem: ${dataHandbook.id_associatedAssembleLine?.name || assembleLines.find((assembleLine) => assembleLine.id == parseInt('<%=user.id_associatedAssembleLine%>'))?.name}
+      </div>
+      <div class="taskTaskInformationLink flex flex-row w-full">
+        <div class="linkButton flex flex-row justify-between items-start w-full gap-2">
+          <a class="taskTaskInformationHeaderName flex flex-row items-center w-full dds__body-3" href="/handbooks/${dataHandbook.id}">
+            Acessar Manual
+          </a>
+          <img src="../images/rightArrow.svg" alt="Seta" class="svgLinkArrowRight w-auto min-h-auto"/>
+        </div>
+      </div>
+    </div>
+      `;
+      finishedGallery.appendChild(taskElement); // Adiciona o elemento à galeria
+    });
+
+    const finishedCards = document.getElementById('finished-cards'); // Obtém o elemento do número de resultados
+    finishedCards.innerHTML = `Manuais finalizados: ${finishedTasks.length}`; // Exibe o número de resultados
+  }
+
+  // Chama a função fetchUnfinishedTasks ao carregar a página
+  //não necessariamente isso está certo > ver depois
+  fetchUnfinishedTasks();
+</script>

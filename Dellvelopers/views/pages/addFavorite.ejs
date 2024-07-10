@@ -1,0 +1,115 @@
+<div class="container">
+  <h1>Add New Favorite</h1>
+  <form id="add-favorits-form">
+    <div class="form-group">
+      <label for="id_associatedHandbook">Id_associatedHandbook:</label>
+      <select
+        class="form-control"
+        id="id_associatedHandbook"
+        name="id_associatedHandbook"
+        required
+      ></select>
+    </div>
+    <div class="form-group">
+      <label for="id_associatedUser">Id_associatedUser:</label>
+      <select
+        class="form-control"
+        id="id_associatedUser"
+        name="id_associatedUser"
+        required
+      >
+        <!-- Opções de usuários serão adicionadas aqui dinamicamente -->
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Faz uma solicitação GET para obter os usuários disponíveis
+    fetch('/users')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Para cada usuário na resposta, adiciona uma opção à caixa de seleção de id_associatedUser
+        const id_associatedUserSelect =
+          document.getElementById('id_associatedUser');
+        data.forEach((user) => {
+          const option = document.createElement('option');
+          option.value = user.id;
+          option.textContent = user.name;
+          id_associatedUserSelect.appendChild(option);
+        });
+      })
+      .catch((error) => console.error('Error fetching users:', error));
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Faz uma solicitação GET para obter os usuários disponíveis
+    fetch('/handbooks')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Para cada usuário na resposta, adiciona uma opção à caixa de seleção de id_associatedUser
+        const id_associatedHandbookSelect = document.getElementById(
+          'id_associatedHandbook'
+        );
+        data.forEach((handbook) => {
+          const option = document.createElement('option');
+          option.value = handbook.id;
+          option.textContent = handbook.name;
+          id_associatedHandbookSelect.appendChild(option);
+        });
+      })
+      .catch((error) => console.error('Error fetching handbooks:', error));
+
+    // Adiciona um evento de envio ao formulário
+    document
+      .getElementById('add-favorits-form')
+      .addEventListener('submit', function (event) {
+        event.preventDefault(); // Evita que o formulário seja enviado
+
+        // Obtém os valores do formulário
+        const id_associatedHandbook = document.getElementById(
+          'id_associatedHandbook'
+        ).value;
+        const id_associatedUser =
+          document.getElementById('id_associatedUser').value;
+
+        // Envia uma solicitação POST para adicionar um novo assemble line
+        fetch('/favorites', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id_associatedHandbook: id_associatedHandbook,
+            id_associatedUser: id_associatedUser,
+          }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                'Network response was not ok ' + response.statusText
+              );
+            }
+            return response.json();
+          })
+          .then((data) => {
+            alert('Favorite added successfully!');
+            // Opcional: Limpar o formulário após o envio bem-sucedido
+            document.getElementById('add-favorits-form').reset();
+          })
+          .catch((error) => console.error('Error adding favorite:', error));
+      });
+  });
+</script>

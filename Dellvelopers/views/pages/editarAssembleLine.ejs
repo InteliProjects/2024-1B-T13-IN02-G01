@@ -1,0 +1,262 @@
+<div id="adicionarFuncionario" class="px-4 md:px-12">
+  <nav id="breadcrumb-906636596" aria-label="breadcrumb">
+    <ol id="breadcrumb-list-500396520-6" class="dds__breadcrumb">
+      <li class="dds__breadcrumb__item">
+        <a href="/assembleLine">
+          <span class="dds__icon dds__icon--chevron-left dds__breadcrumb__chevron-left-icon" aria-hidden="true"></span>
+          Voltar para Linhas de Montagem
+          <span class="dds__sr-only">Voltar para Linha de Montagem</span>
+        </a>
+      </li>
+      <li class="dds__breadcrumb__item">
+        <a href="/editarAssembleLine/<%=`${assembleLine.id}`%>">Editar Linhas de Montagem</a>
+      </li>
+    </ol>
+  </nav>
+  <h2 class="my-8">Editar Linha de Montagem</h2>
+
+  <div id="form_AdcFunc" class="text-base font-normal text-gray-500">
+    <form id="editFuncionarioForm" class="space-y-4">
+      <div id="text input-367924572" class="dds__input-text__container">
+        <label id="text-input-label-name" for="text-input-control-name" class="dds__label dds__label--required">Nome da Linha de Montagem</label>
+        <div class="dds__input-text__wrapper">
+          <input type="text" required class="dds__input-text dds__has__icon--start" name="text-input-control-name" id="text-input-control-name" placeholder="Insira o seu nome" aria-labelledby="text-input-label-name text-input-helper-name" />
+          <span class="dds__icon dds__icon--user dds__input-text__icon--start" aria-hidden="true"></span>
+        </div>
+      </div>
+
+
+
+      <div class="dds__text-area__container" data-dds="text-area">
+        <div class="dds__text-area__header">
+          <label id="text-area-label-description" for="text-area-control-description" class="dds__label dds__label--required">Descrição da Linha de Montagem</label>
+        </div>
+        <div class="dds__text-area__wrapper">
+          <textarea class="dds__text-area" name="text-area-control-name-description" placeholder="Adicione uma descrição para a Linha de Montagem." id="text-area-control-description" data-maxlength="1000" maxlength="1000" aria-required="true" aria-labelledby="text-area-label-description text-area-helper-description" required></textarea>
+          <small id="text-area-error-description" class="dds__invalid-feedback">Algo deu errado</small>
+        </div>
+      </div>
+
+      <div class="dds__dropdown" data-dds="dropdown" id="dropdown-productType">
+        <div class="dds__dropdown__input-container">
+          <label id="dropdown-label-productType" for="dropdown-control-productType" class="dds__label dds__label--required">Tipo de Produto</label>
+          <div class="dds__dropdown__input-wrapper" autocomplete="off" aria-haspopup="listbox" aria-controls="dropdown-popup-productType">
+            <input id="dropdown-control-productType" name="dropdown-name" type="text" role="combobox" class="dds__dropdown__input-field" placeholder="Selecione o Tipo do Produto" aria-labelledby="dropdown-label-productType dropdown-helper-productType" autocomplete="off" aria-expanded="false" aria-controls="dropdown-popup-list-productType" required/>
+          </div>
+        </div>
+        <div id="dropdown-popup-productType" class="dds__dropdown__popup dds__dropdown__popup--hidden" role="presentation" tabindex="-1">
+          <ul class="dds__dropdown__list" role="listbox" tabindex="-1" id="dropdown-popup-list-productType">
+            <li class="dds__dropdown__item" role="none">
+              <button type="button" class="dds__dropdown__item-option" role="option" data-selected="false" data-value="Desktop" tabindex="-1">
+                <span class="dds__dropdown__item-label">Desktop</span>
+              </button>
+            </li>
+            <li class="dds__dropdown__item" role="none">
+              <button type="button" class="dds__dropdown__item-option" role="option" data-selected="false" data-value="Notebook" tabindex="-1">
+                <span class="dds__dropdown__item-label">Notebook</span>
+              </button>
+            </li>
+            <li class="dds__dropdown__item" role="none">
+              <button type="button" class="dds__dropdown__item-option" role="option" data-selected="false" data-value="Servidor" tabindex="-1">
+                <span class="dds__dropdown__item-label">Servidor</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="my-8">Associar funcionários</h2>
+
+      <div class="dds__dropdown" data-dds="dropdown" id="dropdown-user">
+        <div class="dds__dropdown__input-container">
+          <label
+            id="dropdown-label-user"
+            for="dropdown-control-user"
+            class="dds__label"
+            >Funcionários</label
+          >
+          <div
+            class="dds__dropdown__input-wrapper"
+            autocomplete="off"
+            aria-haspopup="listbox"
+            aria-controls="dropdown-popup-user"
+          >
+            <input
+              id="dropdown-control-user"
+              name="dropdown-name"
+              type="text"
+              role="combobox"
+              class="dds__dropdown__input-field"
+              placeholder="ex: Maria José da Silva"
+              aria-labelledby="dropdown-label-user dropdown-helper-user"
+              autocomplete="off"
+              aria-expanded="false"
+              aria-controls="dropdown-popup-list-user"
+            />
+            <small
+              id="dropdown-helper-associatedUser"
+              class="dds__input-text__helper"
+            >
+              Selecione um ou mais funcionários para associar a linha de montagem
+            </small>
+          </div>
+        </div>
+        <div
+          id="dropdown-popup-user"
+          class="dds__dropdown__popup dds__dropdown__popup--hidden"
+          role="presentation"
+          tabindex="-1"
+        >
+          <ul
+            class="dds__dropdown__list"
+            role="listbox"
+            tabindex="-1"
+            id="dropdown-popup-list-user"
+          ></ul>
+        </div>
+      </div>
+      <button id="submit-form-button" class="dds__button dds__form__submit w-full my-8" type="submit">
+        Editar Linha de Montagem
+      </button>
+    </form>
+  </div>
+</div>
+<script>
+  // Obtém o elemento de navegação breadcrumb e inicializa o componente DDS.Breadcrumb nele
+  const breadcrumbNavegation = document.getElementById('breadcrumb-906636596');
+  DDS.Breadcrumb(breadcrumbNavegation);
+// Obtém o dropdown de tipo de produto e inicializa o componente DDS.Dropdown nele
+  const dropdownProductType = document.getElementById('dropdown-productType');
+  const productTypeAPI = DDS.Dropdown(dropdownProductType, {
+    selectAll: false
+  });
+  // Variável para armazenar o tipo de produto selecionado
+  let productType = null;
+  // Event listener para capturar a seleção no dropdown de tipo de produto
+  dropdownProductType.addEventListener(
+    'ddsDropdownSelectionChangeEvent',
+    (event) => {
+      productType = event.detail.value;
+    }
+  );
+  // Event listener para capturar a seleção no dropdown de usuário
+  const dropdownUser = document.getElementById('dropdown-user');
+  let id_associatedUser = null;
+  let listaDeUsers = [];
+  let listaDeUsersAssembleLine = [];
+  dropdownUser.addEventListener(
+    'ddsDropdownSelectionChangeEvent',
+    (event) => {
+      id_associatedUser = event.detail.value;
+    }
+  );
+  // Função assíncrona para buscar os usuários da API
+  const fetchUsers = async () => {
+    try {
+      // Faz uma requisição assíncrona para obter todos os usuários
+      const fetchResultUsers = await fetch('/users');
+      listaDeUsers = await fetchResultUsers.json();
+      listaDeUsersAssembleLine = listaDeUsers.filter((user) => user.id_associatedAssembleLine === parseInt("<%=assembleLine.id%>"));
+      renderUsers();
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
+  };
+  // Função para renderizar os usuários no dropdown de usuário
+  const renderUsers = async () => {
+    const usersOptions = document.getElementById(
+      'dropdown-popup-list-user'
+    );
+    usersOptions.innerHTML = '';
+
+    // Itera sobre a lista de usuários e cria elementos de opção no dropdown
+    await listaDeUsers?.forEach((user) => {
+      const usersElement = document.createElement('li');
+      usersElement.id = user.id;
+      usersElement.classList.add('dds__dropdown__item');
+      usersElement.setAttribute('role', 'none');
+      usersElement.innerHTML = `
+              <button
+                type="button"
+                class="dds__dropdown__item-option"
+                role="option"
+                data-selected="false"
+                data-value="${user.id}"
+                tabindex="-1"
+              >
+                <span class="dds__dropdown__item-label">${user.name}</span>
+              </button>
+        `; 
+
+      usersOptions.appendChild(usersElement);
+    });
+
+    // Inicializa o componente DDS.Dropdown para o dropdown de usuário
+    const dropdownUserAPI = DDS.Dropdown(dropdownUser, {
+      selectAll: true,
+      selection: 'multiple',
+      noOptionsLabel: 'Nenhum funcionário encontrado',
+      selectAllLabel: 'Selecionar todos',
+      selectedLabel: 'Selecionado',
+      srClearLabel: 'Limpar seleção',
+    });
+    // Seleciona automaticamente as opções correspondentes aos usuários associados à linha de montagem
+    listaDeUsersAssembleLineID = listaDeUsersAssembleLine.map((user) => user.id.toString());
+    dropdownUserAPI.selectOption(listaDeUsersAssembleLineID);
+  };
+  // Chama a função para buscar os usuários ao carregar a página
+  fetchUsers();
+  // Define os valores nos campos de entrada com base nos dados da linha de montagem
+  document.getElementById('text-input-control-name').value = "<%=assembleLine.name%>";
+  productTypeAPI.selectOption("<%=assembleLine.productType%>");
+  document.getElementById('text-area-control-description').value = ("<%=assembleLine.description%>");
+
+
+    const form = document.getElementById('editFuncionarioForm');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const submitButton = document.getElementById('submit-form-button');
+        submitButton.disabled = true;
+        // Obtém os valores dos campos do formulário
+        const name = document.getElementById('text-input-control-name').value;
+        const description = document.getElementById('text-area-control-description').value;
+        const productType = productTypeAPI.getSelection();
+        const associatedUser = id_associatedUser;
+        const id = "<%=assembleLine.id%>";
+        // Faz uma requisição assíncrona para atualizar a linha de montagem
+        const response = await fetch(`/assembleLines/update/${id}`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+            name,
+            description,
+            productType,
+            id_associatedUserArray: associatedUser.map((user) => parseInt(user)),
+            }),
+        });
+
+        submitButton.disabled = false;
+
+        submitButton.value = 'Funcionário editado com sucesso!';
+        window.location.href = '/assembleLine';
+
+    });
+
+
+  if (typeof DDS !== 'undefined') {
+    // Verifica se a biblioteca DDS está carregada
+
+    // This makes the search work
+    const searchHandbook = document.getElementById('search-107457371'); // Obtém o elemento de busca
+    DDS.Search(searchHandbook); // Inicializa a busca com a biblioteca DDS
+  } else {
+    console.error(
+      'DDS is not defined. Ensure the DDS library is correctly included.' // Loga um erro caso a biblioteca DDS não esteja definida
+    );
+  }
+</script>
+</body>

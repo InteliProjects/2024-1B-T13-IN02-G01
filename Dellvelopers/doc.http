@@ -1,0 +1,42 @@
+### Retorna todos os Usuários
+GET  http://localhost:1337/users
+
+POST http://localhost:1337/assembleLine
+Content-Type: application/json
+
+POST http://localhost:1337/handbooks
+Content-Type: application/json
+
+POST http://localhost:1337/users
+Content-Type: application/json
+
+###
+POST http://localhost:1337/tasks
+Content-Type: application/json
+
+    {
+        "isFinished": false,
+        "priority": "Média",
+        "id_associatedHandbook": 14,
+        "id_associatedUser": 1,
+        "uploadDate": "2023-01-23 08:22:56"
+    }
+
+POST http://localhost:1337/localhost:1337/handbooks
+Content-Type: application/json
+
+###
+GET  http://localhost:1337/assembleLines
+Content-Type: application/json
+
+###
+POST   http://localhost:1337/assembleLines
+Content-Type: application/json
+
+###
+  POST   http://localhost:1337/Users
+Content-Type: application/json
+
+
+
+

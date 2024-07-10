@@ -1,0 +1,236 @@
+<div class="flex flex-col max-lg:px-4 px-4 md:px-12 gap-8">
+  <div class="mainPersonalData flex flex-col justify-start items-start max-w-full">
+    <h3 class="personalDataSectionTitle mb-8">Dados Pessoais</h3>
+    <div class="personalData flex max-lg:flex-col flex-row justify-between items-center w-full gap-8">
+      <div class="h-auto aspect-square object-cover">
+        <% try { %>
+        <% if (user) { %>
+        <img class="w-full h-full rounded-sm" src="https://api.dicebear.com/8.x/initials/svg?seed=<%=`${user.name.split(" ")[0]} ${user.name.split(" ")[1]}` || "usuário" %>&backgroundColor=0672cb" alt="avatar" />
+        <% } %>
+        <% } catch (err) { %>
+        <div>Infelizmente você fez o L</div> <!-- Inclui uma imagem com id "imageUser" -->
+        <% } %>
+
+      </div>
+      <forms class="formsContentWithProfileContent w-full gap-3 flex flex-col">
+        <div id="text input-874907161" class="dds__input-text__container">
+          <label id="text-input-label-330434483" for="text-input-control-330434483" class="dds__label">Nome Completo</label>
+          <div class="dds__input-text__wrapper">
+            <input type="text" class="dds__input-text dds__has__icon--start" name="text-input-control-name-330434483" id="text-input-control-330434483" readonly="true" aria-labelledby="text-input-label-330434483 text-input-helper-330434483" value="<%= user.name %>" />
+            <span class="dds__icon dds__icon--user dds__input-text__icon--start" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div id="text input-874907161" class="dds__input-text__container">
+          <label id="text-input-label-330434483" for="text-input-control-330434483" class="dds__label">Gênero</label>
+          <div class="dds__input-text__wrapper">
+            <input type="text" class="dds__input-text dds__has__icon--start" name="text-input-control-name-330434483" id="text-input-control-330434483" readonly="true" aria-labelledby="text-input-label-330434483 text-input-helper-330434483" value="<%= user.gender %>" />
+            <span class="dds__icon dds__icon--user-directory dds__input-text__icon--start" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div id="text input-874907161" class="dds__input-text__container">
+          <label id="text-input-label-330434483" for="text-input-control-330434483" class="dds__label">E-mail</label>
+          <div class="dds__input-text__wrapper">
+            <input type="text" class="dds__input-text dds__has__icon--start" name="text-input-control-name-330434483" id="text-input-control-330434483" readonly="true" aria-labelledby="text-input-label-330434483 text-input-helper-330434483" value="<%= user.email %>" />
+            <span class="dds__icon dds__icon--mail dds__input-text__icon--start" aria-hidden="true"></span>
+          </div>
+        </div>
+      </forms>
+    </div>
+  </div>
+
+  <div id="Segunda parte">
+    <!---Nome de merda-->
+    <div id="favoritos">
+      <h3>Favoritos</h3>
+      <div id="carrossel">
+
+        <div class="dds__carousel" id="carousel-491995301" aria-label="Carousel label" role="region" aria-atomic="false" data-dds="carousel">
+          <div class="dds__carousel__controls hidden" role="group">
+            <button type="button" class="dds__button dds__button__icon dds__button--editorial-light dds__carousel__controls__prev">
+              <span class="dds__icon dds__icon--chevron-left" aria-hidden="true"></span>
+              <span class="dds__sr-only">Página Anterior</span>
+            </button>
+            <button type="button" class="dds__button dds__button__icon dds__button--editorial-light dds__carousel__controls__next">
+              <span class="dds__icon dds__icon--chevron-right" aria-hidden="true"></span>
+              <span class="dds__sr-only">Próxima Página</span>
+            </button>
+          </div>
+          <div class="favoritesContainer">
+            <div class="dds__carousel__items-wrapper">
+              <div class="dds__carousel__track" role="presentation">
+                <div class="dds__loading-indicator flex flex-col w-full justify-center items-center">
+                  <div
+                    class="dds__loading-indicator__label w-full flex flex-row items-center justify-center"
+                    aria-live="polite">
+                    Carregando seus manuais favoritos
+                  </div>
+                  <div class="dds__loading-indicator__spinner w-full flex flex-row items-center justify-center"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+  // Cria um elemento div para exibir informações
+  const infoElement = document.createElement('div');
+  infoElement.classList.add(
+    'flex', // Adiciona classe flex
+    'flex-col', // Adiciona classe flex-col
+    'bg-gray-100', // Adiciona classe bg-gray-100
+    'justify-center', // Adiciona classe justify-center
+    'items-center', // Adiciona classe items-center
+    'shadow-sm', // Adiciona classe shadow-sm
+    'p-8' // Adiciona classe p-8
+  );
+  // Define o conteúdo HTML dentro do elemento infoElement
+  infoElement.innerHTML = `
+      <div 
+        id="text-info"
+        style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr))"
+        class="grid gap-4 margin-12" >
+      </div>`
+  // Função assíncrona para renderizar os manuais favoritos
+  const renderFavoritos = async () => {
+    // Busca os manuais favoritos do usuário via requisição GET para '/users/favorites'
+    const meusFavoritos = await fetch('/users/favorites', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(
+      (response) => response.json() // Converte a resposta para JSON
+    );
+    // Busca todos os manuais disponíveis via requisição GET para '/handbooks'
+    const handbooks = await fetch('/handbooks', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(
+      (response) => response.json() // Converte a resposta para JSON
+    );
+
+    //if meusFavoritos is empty
+    if (meusFavoritos.length === 0) {
+      // Obtém o elemento que contém os favoritos e limpa seu conteúdo
+      const items_holder = document.getElementsByClassName('favoritesContainer')[[0]];
+      items_holder.innerHTML = '';
+
+      items_holder.classList.add('flex', 'justify-center', 'items-center', 'py-[75px]');
+      items_holder.innerHTML = `
+        <span class="text-center">Você ainda não adicionou nenhum manual aos favoritos</span>
+      `;
+    }else{
+      // Caso haja manuais favoritos, exibe os controles do carousel
+      const carouselControls = document.getElementsByClassName('dds__carousel__controls')[0];
+      carouselControls.classList.remove('hidden');
+      carouselControls.classList.add('block');
+
+      const items_holder = document.getElementsByClassName('dds__carousel__track')[0];  
+      items_holder.innerHTML = '';
+
+      meusFavoritos.forEach((favorito) => {
+  
+      const handbook = handbooks.find((handbook) => handbook.id === favorito.id_associatedHandbook);
+  
+      
+      if (!handbook) {
+        console.log(favorito.id_associatedHandbook, 'not found')
+        return
+      };
+
+      const item = document.createElement('div');
+      // add role to div
+      item.setAttribute('role', 'group');
+      item.classList.add('dds__carousel__item');
+      item.innerHTML = `
+  
+                <div class="dds__card">
+                  <div class="dds__card__medias w-full h-[150px] p-3"
+                  
+                   
+                  >
+                  <img src="/images/productsImages/${handbook?.images ? handbook.images : ""}" alt="Imagem do manual" class="w-full h-full object-contain" />
+                  </div>
+                  <div class="dds__card__content">
+                    <div class="dds__card__header false">
+                      <span class="dds__card__header__text"><h5 class="dds__card__header__title">${handbook.productName}</h5></span>
+                      <button id="favorite-${handbook.id}" class="w-[20px] favoriteButton aspect-square">
+                        <svg class="dds__card__header__icon text-[#0672cb] text-lg"><use xlink:href="#dds__icon--heart-filled"></use></svg>
+                      </button>
+                    </div>
+                    <div class="dds__card__footer">
+                      <a href="/handbooks/${handbook.id}"  class="dds__link--standalone dds__card__footer__item" id="link-id-654648905" href="javascript:void(0)">
+                        Ver manual
+                        <span class="dds__icon dds__icon--arrow-right" aria-hidden="true"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+      `;
+      items_holder.appendChild(item); // Adiciona o item ao carousel
+      // Obtém o botão de favorito dentro do item e adiciona um listener de evento
+      const favoriteButton = item.querySelector(
+        `#favorite-${handbook.id}`
+      );
+  
+      favoriteButton.addEventListener('click', async () => {
+        isFavorite = true
+        isFavorite = !isFavorite;
+        favoriteButton.innerHTML = `
+          
+          ${
+            isFavorite
+              ? '<svg class="dds__icon dds__icon--heart-filled text-[#0672cb] text-lg" focusable="false"><use xlink:href="#dds__icon--heart-filled"></use></svg>'
+              : '<svg class="dds__icon dds__icon--heart text-lg" focusable="false"><use xlink:href="#dds__icon--heart"></use></svg>'
+          }
+        `;
+        // Envia uma requisição assíncrona para atualizar o status de favorito do manual
+        const favoriteStatus = await fetch(`/users/favorite`, {
+          method: 'POST',
+          body: JSON.stringify({ handbookId: handbook.id }),
+        }).then((res) => res.json());
+        // Atualiza o ícone do botão de favorito com base no status retornado pela API
+        favoriteButton.innerHTML = `
+          
+                ${
+                  favoriteStatus?.favorite
+                    ? '<svg class="dds__icon dds__icon--heart-filled text-[#0672cb] text-lg" focusable="false"><use xlink:href="#dds__icon--heart-filled"></use></svg>'
+                    : '<svg class="dds__icon dds__icon--heart text-lg" focusable="false"><use xlink:href="#dds__icon--heart"></use></svg>'
+                }
+        `;
+
+      });
+  
+    });
+    }
+
+
+    // Obtém o elemento do carousel e inicializa o componente DDS.Carousel
+    const elementCarousel = document.getElementById("carousel-491995301");
+    DDS.Carousel(elementCarousel, { itemsPerSlide: { "540": 2, "960": 3, "1440": 4 }, localization: {
+      compactPaginationText: "{currentSlide} de {totalSlides}",
+      srIndicatorDescription: "Ir para a página",
+      srPaginationDescription: "Mostrando a página {currentSlide} de {totalSlides}"
+    } });
+
+  }
+
+
+  renderFavoritos()
+
+
+
+
+
+
+</script>

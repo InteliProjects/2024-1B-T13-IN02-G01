@@ -1,0 +1,145 @@
+<div class="content flex flex-col items-center gap-x-10 gap-y-2 w-full">
+  <div class="head flex px-3 flex-col justify-center items-center">
+    <h2 class="text-center">Guia de uso da plataforma</h2>
+    <h5 class="max-w-[600px] x-auto text-center mb-4 font-light">
+      Encontre aqui o passo-a-passo para acessar as principais funcionalidades
+      da plataforma
+    </h5>
+  </div>
+  <div
+    class="maincontent px-5 flex flex-col justify-center items-center w-full max-w-[1100px] gap-y-8"
+  >
+    <div
+      class="dds__search"
+      id="search-328548832"
+      data-dds="search"
+      role="search"
+    >
+      <div class="dds__search__wrapper">
+        <input
+          type="search"
+          class="dds__search__control"
+          name="search-control-872376460"
+          id="search-control-872376460"
+          autocomplete="off"
+          placeholder="Ex: Como adicionar uma nova linha de montagem?"
+          aria-labelledby="search-label-872376460"
+        />
+      </div>
+    </div>
+    <div
+      role="region"
+      id="accordion-216469753"
+      class="dds__accordion"
+      data-dds="accordion"
+    ></div>
+  </div>
+</div>
+
+<script>
+  const accordionItemsArray = [
+    [
+      'O que um administrador pode fazer na plataforma?',
+      'A plataforma desenvolvida oferece diversas funcionalidades para atender às necessidades diárias de um administrador no contexto de produção. Entre essas funcionalidades estão: adicionar, editar e remover manuais acessíveis aos montadores; atribuir manuais a serem lidos por linhas de montagem específicas; agrupar montadores em linhas de montagem; adicionar funcionários à plataforma e conceder-lhes acesso; e, por fim, visualizar as estatísticas de progresso dos funcionários e das linhas de montagem.',
+    ],
+    [
+      'Como adicionar um manual?',
+      'A função de adicionar manuais está disponível na plataforma ao acessar a aba "Manuais" no menu e clicar no botão "Adicionar Manual". Você será redirecionado para uma página onde poderá cadastrar um manual, associando-o a uma linha de montagem e inserindo todas as informações necessárias.',
+    ],
+    [
+      'Como remover um manual?',
+      'A função de remover manuais está disponível na plataforma ao acessar a aba "Manuais" no menu e clicar no botão "Excluir". O manual será removido da lista de manuais, tanto para administradores quanto para montadores.',
+    ],
+    [
+      'Como editar um manual?',
+      'A função de editar manuais está disponível na plataforma ao acessar a aba "Manuais" no menu e clicar no botão "Editar". Você será redirecionado para uma página onde poderá alterar um manual já existente, atualizando suas informações.',
+    ],
+    [
+      'Como adicionar um funcionário?',
+      'A função de adicionar funcionários está disponível na plataforma ao acessar a aba "Funcionários" no menu e clicar no botão "Adicionar Funcionário". Você será redirecionado para uma página onde poderá cadastrar o funcionário, inserindo todas as informações necessárias para que ele possa acessar a plataforma.',
+    ],
+    [
+      'Como desativar um funcionário?',
+      'A função de desativar funcionários está disponível na plataforma ao acessar a aba "Funcionários" no menu e clicar no botão "Excluir". Isso desativará o funcionário da lista, impedindo o acesso à plataforma com os dados em questão.',
+    ],
+    [
+      'Como editar o cargo de um funcionário?',
+      'A função de editar funcionários está disponível na plataforma ao acessar a aba "Funcionários" no menu e clicar no botão "Editar". Você será redirecionado para uma página onde poderá alterar os dados de um funcionário já existente, atualizando suas informações.',
+    ],
+  ];
+
+  const accordion = document.getElementById('accordion-216469753');
+
+  accordion.innerHTML = '';
+  accordionItemsArray.forEach((item, index) => {
+    accordion.innerHTML += `
+      <div class="dds__accordion__item">
+        <h5 class="dds__accordion__heading">
+          <button
+            type="button"
+            id="accordion-item-trigger-${index}"
+            class="dds__accordion__button"
+            aria-expanded="false"
+            aria-controls="accordion-item-content-${index}"
+          >
+            ${item[0]}
+          </button>
+        </h5>
+        <div
+          id="accordion-item-content-${index}"
+          class="dds__accordion__content"
+          role="region"
+          aria-labelledby="accordion-item-trigger-${index}"
+        >
+          <div class="dds__accordion__body">
+            <p>
+              ${item[1]}
+            </p>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+  DDS.Accordion(accordion, { independent: true });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const inputSearch = document.getElementById('search-328548832');
+    DDS.Search(inputSearch, { independent: true });
+
+    let searchValue = '';
+    inputSearch.addEventListener('ddsSearchSubmitEvent', (event) => {
+      searchValue = event.target.value;
+      executeSearch(searchValue);
+    });
+
+    inputSearch.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        searchValue = e.target.value.trim().toLowerCase();
+        executeSearch(searchValue);
+      }
+    });
+
+    function executeSearch(searchTerm) {
+      searchTerm = searchTerm.trim().toLowerCase(); // Certifica-se de que o termo de pesquisa esteja em minúsculas
+      const accordionItems = document.querySelectorAll('.dds__accordion__item'); // Seleciona todos os itens do acordeão
+
+      accordionItems.forEach(function (item) {
+        const heading = item
+          .querySelector('.dds__accordion__heading')
+          .textContent.trim()
+          .toLowerCase(); // Obtém o texto do cabeçalho do acordeão
+        const body = item
+          .querySelector('.dds__accordion__body')
+          .textContent.trim()
+          .toLowerCase(); // Obtém o texto do corpo do acordeão
+
+        // Verifica se o termo de pesquisa está presente no título ou no corpo do acordeão
+        if (heading.includes(searchTerm) || body.includes(searchTerm)) {
+          item.style.display = 'block'; // Exibe o acordeão
+        } else {
+          item.style.display = 'none'; // Oculta o acordeão
+        }
+      });
+    }
+  });
+</script>

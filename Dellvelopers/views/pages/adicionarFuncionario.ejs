@@ -1,0 +1,474 @@
+<div id="adicionarFuncionario" class="px-12">
+  <nav id="breadcrumb-906636596" aria-label="breadcrumb">
+    <ol id="breadcrumb-list-500396520-6" class="dds__breadcrumb">
+      <li class="dds__breadcrumb__item">
+        <a href="/admin">
+          <span
+            class="dds__icon dds__icon--chevron-left dds__breadcrumb__chevron-left-icon"
+            aria-hidden="true"
+          ></span>
+          Voltar para funcionários
+          <span class="dds__sr-only">Voltar para funcionários</span>
+        </a>
+      </li>
+      <li class="dds__breadcrumb__item">
+        <a href="/adicionarFuncionario">Adicionar funcionário</a>
+      </li>
+    </ol>
+  </nav>
+  <h2 class="my-8">Adicionar Funcionários</h2>
+
+  <div id="form_AdcFunc" class="text-base font-normal text-gray-500">
+    <form id="addFuncionarioForm" class="space-y-4">
+      <div id="text input-367924572" class="dds__input-text__container">
+        <label
+          id="text-input-label-name"
+          for="text-input-control-name"
+          class="dds__label dds__label--required"
+          >Nome</label
+        >
+        <div class="dds__input-text__wrapper">
+          <input
+            type="text"
+            class="dds__input-text dds__has__icon--start"
+            name="text-input-control-name"
+            id="text-input-control-name"
+            placeholder="Insira o seu nome"
+            required="true"
+            aria-labelledby="text-input-label-name text-input-helper-name"
+          />
+          <span
+            class="dds__icon dds__icon--user dds__input-text__icon--start"
+            aria-hidden="true"
+          ></span>
+        </div>
+      </div>
+
+      <div class="dds__dropdown" data-dds="dropdown" id="dropdown-gender">
+        <div class="dds__dropdown__input-container">
+          <label
+            id="dropdown-label-gender"
+            for="dropdown-control-gender"
+            class="dds__label dds__label--required"
+            >Gênero</label
+          >
+          <div
+            class="dds__dropdown__input-wrapper"
+            autocomplete="off"
+            aria-haspopup="listbox"
+            aria-controls="dropdown-popup-gender"
+          >
+            <input
+              id="dropdown-control-gender"
+              name="dropdown-name"
+              type="text"
+              role="combobox"
+              required="true"
+              class="dds__dropdown__input-field"
+              placeholder="Selecione o gênero"
+              aria-labelledby="dropdown-label-gender dropdown-helper-gender"
+              autocomplete="off"
+              aria-expanded="false"
+              aria-controls="dropdown-popup-list-gender"
+            />
+          </div>
+        </div>
+        <div
+          id="dropdown-popup-gender"
+          class="dds__dropdown__popup dds__dropdown__popup--hidden"
+          role="presentation"
+          tabindex="-1"
+        >
+          <ul
+            class="dds__dropdown__list"
+            role="listbox"
+            tabindex="-1"
+            id="dropdown-popup-list-gender"
+          >
+            <li class="dds__dropdown__item" role="none">
+              <button
+                type="button"
+                class="dds__dropdown__item-option"
+                role="option"
+                data-selected="false"
+                data-value="1"
+                tabindex="-1"
+              >
+                <span class="dds__dropdown__item-label">Masculino</span>
+              </button>
+            </li>
+            <li class="dds__dropdown__item" role="none">
+              <button
+                type="button"
+                class="dds__dropdown__item-option"
+                role="option"
+                data-selected="false"
+                data-value="2"
+                tabindex="-1"
+              >
+                <span class="dds__dropdown__item-label">Feminino</span>
+              </button>
+            </li>
+            <li class="dds__dropdown__item" role="none">
+              <button
+                type="button"
+                class="dds__dropdown__item-option"
+                role="option"
+                data-selected="false"
+                data-value="3"
+                tabindex="-1"
+              >
+                <span class="dds__dropdown__item-label">Não-Binário</span>
+              </button>
+            </li>
+            <li class="dds__dropdown__item" role="none">
+              <button
+                type="button"
+                class="dds__dropdown__item-option"
+                role="option"
+                data-selected="false"
+                data-value="4"
+                tabindex="-1"
+              >
+                <span class="dds__dropdown__item-label">Outros</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dds__dropdown" data-dds="dropdown" id="dropdown-accessLevel">
+        <div class="dds__dropdown__input-container">
+          <label
+            id="dropdown-label-accessLevel"
+            for="dropdown-control-accessLevel"
+            class="dds__label dds__label--required"
+            >Nível de acesso</label
+          >
+          <div
+            class="dds__dropdown__input-wrapper"
+            autocomplete="off"
+            aria-haspopup="listbox"
+            aria-controls="dropdown-popup-accessLevel"
+          >
+            <input
+              id="dropdown-control-accessLevel"
+              name="dropdown-name"
+              type="text"
+              role="combobox"
+              required="true"
+              class="dds__dropdown__input-field"
+              placeholder="Selecione o nível de acesso"
+              aria-labelledby="dropdown-label-accessLevel dropdown-helper-accessLevel"
+              autocomplete="off"
+              aria-expanded="false"
+              aria-controls="dropdown-popup-list-accessLevel"
+            />
+          </div>
+        </div>
+        <div
+          id="dropdown-popup-accessLevel"
+          class="dds__dropdown__popup dds__dropdown__popup--hidden"
+          role="presentation"
+          tabindex="-1"
+        >
+          <ul
+            class="dds__dropdown__list"
+            role="listbox"
+            tabindex="-1"
+            id="dropdown-popup-list-accessLevel"
+          >
+            <li class="dds__dropdown__item" role="none">
+              <button
+                type="button"
+                class="dds__dropdown__item-option"
+                role="option"
+                data-selected="false"
+                data-value="1"
+                tabindex="-1"
+              >
+                <span class="dds__dropdown__item-label">Montador</span>
+              </button>
+            </li>
+            <li class="dds__dropdown__item" role="none">
+              <button
+                type="button"
+                class="dds__dropdown__item-option"
+                role="option"
+                data-selected="false"
+                data-value="2"
+                tabindex="-1"
+              >
+                <span class="dds__dropdown__item-label">Engenheiro</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dds__dropdown" data-dds="dropdown" id="dropdown-assembleLine">
+        <div class="dds__dropdown__input-container">
+          <label
+            id="dropdown-label-assembleLine"
+            for="dropdown-control-assembleLine"
+            class="dds__label"
+            >Linha de montagem associada</label
+          >
+          <div
+            class="dds__dropdown__input-wrapper"
+            autocomplete="off"
+            aria-haspopup="listbox"
+            aria-controls="dropdown-popup-assembleLine"
+          >
+            <input
+              id="dropdown-control-assembleLine"
+              name="dropdown-name"
+              type="text"
+              role="combobox"
+              class="dds__dropdown__input-field"
+              placeholder="Selecione uma linha de montagem"
+              aria-labelledby="dropdown-label-assembleLine dropdown-helper-assembleLine"
+              autocomplete="off"
+              aria-expanded="false"
+              aria-controls="dropdown-popup-list-assembleLine"
+            />
+          </div>
+        </div>
+        <div
+          id="dropdown-popup-assembleLine"
+          class="dds__dropdown__popup dds__dropdown__popup--hidden"
+          role="presentation"
+          tabindex="-1"
+        >
+          <ul
+            class="dds__dropdown__list"
+            role="listbox"
+            tabindex="-1"
+            id="dropdown-popup-list-assembleLine"
+          ></ul>
+        </div>
+      </div>
+
+      <h2 class="my-8">Informações Cadastrais</h2>
+
+      <div id="text-input-367924572" class="dds__input-text__container">
+        <label
+          id="text-input-label-email"
+          for="text-input-control-email"
+          class="dds__label dds__label--required"
+          >E-mail</label
+        >
+        <div class="dds__input-text__wrapper">
+          <input
+            type="text"
+            class="dds__input-text dds__has__icon--start"
+            name="text-input-control-email"
+            id="text-input-control-email"
+            placeholder="Insira o seu e-mail"
+            required="true"
+            aria-labelledby="text-input-label-email text-input-helper-email"
+          />
+          <span
+            class="dds__icon dds__icon--mail dds__input-text__icon--start"
+            aria-hidden="true"
+          ></span>
+        </div>
+      </div>
+
+      <div id="password-inAForm-148619730" class="dds__input-text__container">
+        <label
+          id="inputpassword-label-773600904"
+          for="inputpassword-773600904"
+          class="dds__label dds__label--required"
+          >Senha</label
+        >
+        <button
+          type="button"
+          class="dds__input__action dds__input__action--switch"
+          title="Mostrar Senha"
+          data-show-label="Mostrar senha"
+          data-hide-label="Ocultar senha"
+        >
+          Mostrar
+        </button>
+        <div class="dds__input-text__wrapper">
+          <input
+            id="inputpassword-773600904"
+            name="inputpassword-773600904"
+            type="password"
+            data-dds="input-password"
+            class="dds__input-text dds__has__icon--start"
+            placeholder="Insira a sua senha"
+            maxlength="256"
+            required="true"
+            aria-labelledby="inputpassword-label-773600904"
+            data-show-label="Mostrar"
+            data-hide-label="Ocultar"
+          />
+          <span
+            class="dds__icon dds__icon--key dds__input-text__icon--start"
+            aria-hidden="true"
+          ></span>
+          <div
+            id="inputpassword-feedback-773600904"
+            class="dds__invalid-feedback"
+          >
+            Insira a sua senha
+          </div>
+        </div>
+      </div>
+
+      <button
+        id="submit-form-button"
+        class="dds__button dds__form__submit w-full my-8"
+        type="submit"
+      >
+        Adicionar Funcionário
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const breadcrumbNavegation = document.getElementById('breadcrumb-906636596');
+  DDS.Breadcrumb(breadcrumbNavegation);
+
+  const dropdownAssembleLine = document.getElementById('dropdown-assembleLine');
+  DDS.Dropdown(dropdownAssembleLine, { selectAll: false });
+  let id_associatedAssembleLine = null;
+  let listaDeAssembleLines = [];
+  dropdownAssembleLine.addEventListener(
+    'ddsDropdownSelectionChangeEvent',
+    (event) => {
+      id_associatedAssembleLine = event.detail.value;
+    }
+  );
+
+  //fetch para pegar as linhas de montagem
+  const fetchAssembleLines = async () => {
+    try {
+      const fetchResultAssembleLines = await fetch('/assembleLines');
+      listaDeAssembleLines = await fetchResultAssembleLines.json();
+      renderAssembleLines();
+    } catch (error) {
+      console.error('Error fetching assemble lines:', error);
+    }
+  };
+
+  const renderAssembleLines = () => {
+    const assembleLinesOptions = document.getElementById(
+      'dropdown-popup-list-assembleLine'
+    ); // Obtém o elemento da galeria de manuais
+    assembleLinesOptions.innerHTML = ''; //limpa a galeria de manuais // Adiciona classes de grid, espaçamento e largura automática
+
+    listaDeAssembleLines?.forEach((assembleLine) => {
+      // Itera sobre cada manual
+      const assembleLinesElement = document.createElement('div'); // Cria um novo elemento div para cada manual
+      assembleLinesElement.id = assembleLine.id; // Define o ID do elemento com o ID do manual
+      assembleLinesElement.classList.add('dds__dropdown__list');
+      assembleLinesElement.innerHTML = `
+            <li class="dds__dropdown__item" role="none">
+              <button
+                type="button"
+                class="dds__dropdown__item-option"
+                role="option"
+                data-selected="false"
+                data-value="${assembleLine.id}"
+                tabindex="-1"
+              >
+                <span class="dds__dropdown__item-label">${assembleLine.name}</span>
+              </button>
+            </li>
+        `; // Define o HTML interno do elemento do manual
+
+      assembleLinesOptions.appendChild(assembleLinesElement); // Adiciona o elemento do manual à galeria
+    });
+  };
+  fetchAssembleLines();
+
+  const dropdownAccessLevel = document.getElementById('dropdown-accessLevel');
+  DDS.Dropdown(dropdownAccessLevel, { selectAll: false });
+  let accessLevel = null;
+  dropdownAccessLevel.addEventListener(
+    'ddsDropdownSelectionChangeEvent',
+    (event) => {
+      accessLevel = event.detail.value;
+    }
+  );
+
+  const dropdownGender = document.getElementById('dropdown-gender');
+  DDS.Dropdown(dropdownGender, { selectAll: false });
+  let gender = null;
+  dropdownGender.addEventListener(
+    'ddsDropdownSelectionChangeEvent',
+    (event) => {
+      gender = event.detail.value;
+    }
+  );
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document
+      .getElementById('addFuncionarioForm')
+      .addEventListener('submit', async function (event) {
+        event.preventDefault(); // Evita que o formulário seja enviado de forma padrão
+        // Obtém os valores do formulário
+        const submitButton = document.getElementById('submit-form-button');
+        const name = document.getElementById('text-input-control-name').value;
+        const email = document.getElementById('text-input-control-email').value;
+        const password = document.getElementById(
+          'inputpassword-773600904'
+        ).value;
+
+        if (gender == 1) {
+          gender = 'Masculino';
+        } else if (gender == 2) {
+          gender = 'Feminino';
+        } else if (gender == 3) {
+          gender = 'Não-Binário';
+        } else {
+          gender = 'Outros';
+        }
+
+        // Envia uma solicitação POST para adicionar um novo usuário
+
+        submitButton.disabled = true;
+
+        await fetch('/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: name,
+            gender: gender,
+            email: email,
+            password: password,
+            accessLevel: accessLevel,
+            id_associatedAssembleLine: id_associatedAssembleLine,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById('addFuncionarioForm').reset();
+            alert('O funcionario foi adicionado!');
+          })
+          .catch((error) => {
+            console.error('Erro ao adicionar usuário:', error);
+            alert('Erro ao adicionar usuário.');
+          });
+        submitButton.disabled = false;
+      });
+  });
+
+  if (typeof DDS !== 'undefined') {
+    // Verifica se a biblioteca DDS está carregada
+
+    // This makes the search work
+    const searchHandbook = document.getElementById('search-107457371'); // Obtém o elemento de busca
+    DDS.Search(searchHandbook); // Inicializa a busca com a biblioteca DDS
+  } else {
+    console.error(
+      'DDS is not defined. Ensure the DDS library is correctly included.' // Loga um erro caso a biblioteca DDS não esteja definida
+    );
+  }
+</script>

@@ -1,0 +1,197 @@
+<div
+  class="flex bg-white rounded-lg w-full justify-between items-stretch gap-x-5"
+  style="flex-grow: 1"
+>
+  <div
+    class="w-full py-8 px-4 flex flex-col justify-center items-start max-lg:items-center"
+  >
+    <img
+      src="/images/headerFooter/dellLogoHeader.svg"
+      alt="Dell Logo"
+      class="w-auto mb-6"
+    />
+    <h1 class="text-2xl font-bold mb-2 max-lg:text-center">
+      Acesse o nosso sistema
+    </h1>
+    <p class="max-lg:text-center">
+      Todos os campos marcados com um asterisco (*) são obrigatórios.
+    </p>
+    <form id="form-449436406" data-dds="form" class="dds__form w-full">
+      <fieldset class="dds__form__section">
+        <div class="dds__form__field">
+          <div
+            id="text-input-container-950989220"
+            class="dds__input-text__container"
+          >
+            <label
+              id="text-input-label-950989220"
+              for="text-input-control-950989220"
+              class="dds__label dds__label--required"
+              >Email</label
+            >
+            <div class="dds__input-text__wrapper w-full">
+              <input
+                type="email"
+                class="dds__input-text w-full dds__has__icon--start"
+                name="text-input-control-name-950989220"
+                placeholder="Insira o seu e-mail"
+                id="text-input-control-950989220"
+                required="true"
+                aria-labelledby="text-input-label-950989220 text-input-helper-950989220"
+              />
+              <span
+                class="dds__icon dds__icon--mail dds__input-text__icon--start"
+                aria-hidden="true"
+              ></span>
+              <div
+                id="text-input-error-950989220"
+                class="dds__invalid-feedback"
+              >
+                Insira o seu e-mail
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dds__form__field w-full">
+          <div
+            id="password-inAForm-148619730"
+            class="dds__input-text__container"
+          >
+            <label
+              id="inputpassword-label-773600904"
+              for="inputpassword-773600904"
+              class="dds__label dds__label--required"
+              >Senha</label
+            >
+            <button
+              type="button"
+              class="dds__input__action dds__input__action--switch"
+              title="Mostrar Senha"
+              data-show-label="Mostrar senha"
+              data-hide-label="Ocultar senha"
+            >
+              Mostrar
+            </button>
+            <div class="dds__input-text__wrapper">
+              <input
+                id="inputpassword-773600904"
+                name="inputpassword-773600904"
+                type="password"
+                data-dds="input-password"
+                class="dds__input-text dds__has__icon--start"
+                placeholder="Insira a sua senha"
+                maxlength="256"
+                required="true"
+                aria-labelledby="inputpassword-label-773600904"
+                data-show-label="Mostrar"
+                data-hide-label="Ocultar"
+              />
+              <span
+                class="dds__icon dds__icon--key dds__input-text__icon--start"
+                aria-hidden="true"
+              ></span>
+              <div
+                id="inputpassword-feedback-773600904"
+                class="dds__invalid-feedback"
+              >
+                Insira a sua senha
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <button class="dds__button dds__form__submit w-full" type="submit">
+        Entrar
+      </button>
+    </form>
+    <!-- <div
+      class="typesOfLoginSeparator my-8 flex flex-row w-full justify-center gap-4 lg:justify-start items-center max-lg:items-center max-lg:mt-6"
+    >
+      <hr class="hidden lg:flex w-full max-lg:w-full text-center" />
+      <p class="text-center m-0 w-full p-0 max-w-[120px]">Ou entre com</p>
+      <hr class="w-full max-lg:w-full" />
+    </div>
+    <button class="SSOButton dds__button dds__button--secondary w-full">
+      SSO
+    </button> -->
+  </div>
+
+  <div
+    class="flex flex-grow w-full max-lg:hidden"
+    style="
+      background-image: url('/images/login-image.png');
+      background-size: cover;
+      background-position: center;
+    "
+  ></div>
+</div>
+
+<script>
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const form = document.getElementById('form-449436406');
+  DDS.Form(form);
+
+  const passwordInputElement = document.getElementById(
+    'password-inAForm-148619730'
+  );
+  DDS.InputPassword(passwordInputElement, {
+    hideLabel: 'Ocultar',
+    showLabel: 'Mostrar',
+    srHideTitle: 'Ocultar senha',
+    srShowTitle: 'Mostrar senha',
+  });
+
+  // Initialize the event listeners
+  form.addEventListener('ddsFormSubmitSuccessEvent', (e) => {
+    e.preventDefault();
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('text-input-control-950989220');
+    const password = document.getElementById('inputpassword-773600904');
+    email.disabled = true;
+    password.disabled = true;
+    try {
+      const data = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email.value,
+          password: password.value,
+        }),
+      });
+      const response = await data.json();
+      if (response.error) {
+        throw new Error(response.error);
+      }
+      const pathRedirect = urlParams.get('redirect');
+      if (pathRedirect) {
+        window.location.href = pathRedirect;
+        return;
+      }
+
+      if (
+        response.accessLevel == 'adm' ||
+        response.accessLevel.toString() == '2' ||
+        response.accessLevel.toString() == '3'
+      ) {
+        window.location.href = '/manuaisAdmin';
+        return;
+      }
+
+      window.location.href = '/meuProgresso';
+    } catch (e) {
+      console.error(e);
+      alert('Email ou senha inválidos');
+    }
+
+    email.disabled = false;
+    password.disabled = false;
+  });
+
+  //pega ai o o valor do input de email e senha
+</script>

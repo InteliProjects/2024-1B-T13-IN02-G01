@@ -1,0 +1,303 @@
+
+    <div
+      class="flex flex-row items-start justify-between w-full px-4 md:px-12 gap-x-20 max-lg:gap-5 max-lg:flex-wrap"
+    >
+      <div class="flex flex-col items-start justify-center w-full lg:max-w-[700px]">
+        
+        <div id="main_title" class="w-full mb-14 flex justify-between items-center gap-5">
+          <div class="flex w-full flex-col ">
+            <h3 class="mb-2"><%= handbook.name %></h3>
+            <h6 class="font-normal">Versão 1.1.1 do manual do DellBook</h6>
+          </div>
+          <div id="favorite-holder" class="cursor-pointer flex ">
+            <svg class="dds__icon dds__icon--refresh-spin animate-spin  !text-[20px]" focusable="false"><use xlink:href="#dds__icon--refresh-spin"></use></svg>
+          </div>
+        </div>
+        <div class="w-full flex justify-center items-center md:h-[300px]">
+          <% var imagePath = '/images/productsImages/' + handbook.images; %>
+          <img src="<%= imagePath %>" class="object-contain max-w-full max-h-[300px]"/>
+          
+        </div>
+        <div class="flex flex-col items-start w-full mt-8">
+          <h4>Descrição</h4>
+          <div
+            class="flex flex-col w-full"
+          >
+            <p class="fonte__texto apresentacao_conteudo w-full">
+              <%= handbook.description %>
+            </div>
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col gap-5 items-start justify-start w-full">
+        <div>
+          <h4 class="w-full">Acesse o Manual</h4>
+          <span class="w-full">
+            Verifique todos os conteúdos para poder finalizar a tarefa
+          </span>
+        </div>
+        <div class="flex flex-col w-full">
+          <button class="dds__button w-full" type="button">
+            Abrir Manual em Guia externa
+          </button>
+        </div>
+        <div class="extra w-full gap-2 flex flex-col">
+          <h4>Conteúdos adicionais</h4>
+          <button
+            class="dds__button dds__button--secondary dds__button--editorial w-full"
+            id="video1Button"
+            type="button"
+          >
+            Vídeo 1
+          </button>
+          <button
+            class="dds__button dds__button--secondary dds__button--editorial w-full"
+            id="video2Button"
+            type="button"
+          >
+            Vídeo 2
+          </button>
+          <button
+            class="dds__button dds__button--secondary dds__button--editorial w-full"
+            id="video3Button"
+            type="button"
+          >
+            Vídeo 3
+          </button>
+        </div>
+        <button
+          class="dds__button dds__button--secondary w-full"
+          id="finalizarButton"
+          type="button"
+          disabled
+        >
+          Finalizar
+        </button>
+      </div>
+    </div>
+
+
+<script>
+  // Redirect functions for each button
+  function redirectTo(url) {
+    window.location.href = url;
+  }
+
+  // structure of handbookProgress is like this: [{id: 1, progress: [true, true, true, false,]}, {id: 2, progress: [true, true, true, false,]}]
+
+  // add handbookProgress into localStorage if it doesn't exist
+  if (!localStorage.getItem('handbookProgress')) {
+    localStorage.setItem('handbookProgress', JSON.stringify([
+      {
+        id: parseInt("<%= handbook.id %>"),
+        progress: [false, false, false, false],
+      },
+    ]));
+  } else {
+    const handbookProgress = JSON.parse(localStorage.getItem('handbookProgress'));
+    const handbookIndex = handbookProgress.findIndex((handbook) => handbook.id === parseInt("<%= handbook.id %>"));
+
+    if (handbookIndex === -1) {
+      handbookProgress.push({
+        id: parseInt("<%= handbook.id %>"),
+        progress: [false, false, false, false],
+      });
+    }
+
+    localStorage.setItem('handbookProgress', JSON.stringify(handbookProgress));
+  }
+
+
+
+  // check if all the videos are watched
+
+  const handbookProgress = JSON.parse(localStorage.getItem('handbookProgress'));
+  const handbookIndex = handbookProgress.findIndex((handbook) => handbook.id === parseInt("<%= handbook.id %>"));
+
+  if (handbookProgress[handbookIndex].progress.slice(0, 3).every((progress) => progress)) {
+    document.getElementById('finalizarButton').removeAttribute('disabled');
+  }
+
+  // Check if all are true and disable the button
+  if (handbookProgress[handbookIndex].progress.every((progress) => progress)) {
+    document.getElementById('finalizarButton').setAttribute('disabled', true);
+    // change the button text to "Finalizado"
+    document.getElementById('finalizarButton').innerText = 'Finalizado';
+  }
+
+  // For each video watched, change the button text to "Assistido"
+  handbookProgress[handbookIndex].progress.forEach((progress, index) => {
+    if (progress) {
+      document.getElementById(`video${index + 1}Button`).innerText += ' (Assistido)';
+      // document.getElementById(`video${index + 1}Button`).setAttribute('disabled', true);
+    }
+  });
+
+
+  // Função assíncrona para concluir uma tarefa
+  async function finishTask(taskId) {
+    const handbookStatus = document.getElementById('').value;// Aqui falta o ID do elemento HTML a ser buscado
+
+    const finished = {
+      isFinished: isFinished,// A variável isFinished não está definida neste trecho
+    };
+
+    try {
+      const updateResult = await fetch(`/task/${taskId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData), // updatedData não está definido
+      });
+
+      if (updateResult.ok) {
+        const updatedUser = await updateResult.json();
+        window.location.reload(); // Recarrega a página após a atualização bem-sucedida
+      } else {
+        console.error('Erro ao atualizar usuário:', await updateResult.text());
+      }
+    } catch (error) {
+      console.error('Erro ao atualizar usuário:', error);
+    }
+  }
+
+  // Função assíncrona para verificar se um manual é favorito do usuário
+  const checkIfIsFavorite = async () => {
+    try {
+      const myFavorites = await fetch('/users/favorites').then((res) =>
+      res.json()
+    );
+
+    let isFavorite = myFavorites.some(
+        (favorite) => favorite.id_associatedHandbook === parseInt("<%= handbook.id %>")
+      );
+
+      const favorite_holder = document.getElementById('favorite-holder');
+
+      favorite_holder.innerHTML = `
+          
+          ${
+            isFavorite
+              ? '<svg class="dds__icon dds__icon--heart-filled text-[#0672cb] !text-[20px]" focusable="false"><use xlink:href="#dds__icon--heart-filled"></use></svg>'
+              : '<svg class="dds__icon dds__icon--heart !text-[20px]" focusable="false"><use xlink:href="#dds__icon--heart"></use></svg>'
+          }
+        `;
+
+        favorite_holder.addEventListener('click', async () => {
+          isFavorite = !isFavorite;
+          favorite_holder.innerHTML = `
+            
+            ${
+              isFavorite
+                ? '<svg class="dds__icon dds__icon--heart-filled text-[#0672cb] !text-[20px]" focusable="false"><use xlink:href="#dds__icon--heart-filled"></use></svg>'
+                : '<svg class="dds__icon dds__icon--heart !text-[20px]" focusable="false"><use xlink:href="#dds__icon--heart"></use></svg>'
+            }
+          `;
+          const favoriteStatus = await fetch(`/users/favorite`, {
+            method: 'POST',
+            body: JSON.stringify({ handbookId: "<%= handbook.id %>" }),
+          }).then((res) => res.json());
+
+          favorite_holder.innerHTML = `
+            
+                  ${
+                    favoriteStatus?.favorite
+                      ? '<svg class="dds__icon dds__icon--heart-filled text-[#0672cb] !text-[20px]" focusable="false"><use xlink:href="#dds__icon--heart-filled"></use></svg>'
+                      : '<svg class="dds__icon dds__icon--heart !text-[20px]" focusable="false"><use xlink:href="#dds__icon--heart"></use></svg>'
+                  }
+          `;
+
+        // renderHandbooks();
+      });
+
+    } catch (error) {
+      console.error('Erro ao verificar favorito:', error);
+    }
+  };
+
+  checkIfIsFavorite()
+
+  // Add event listeners to the buttons after the DOM is fully loaded
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const manualButton = document.getElementById('manualButton');
+    const video1Button = document.getElementById('video1Button');
+    const video2Button = document.getElementById('video2Button');
+    const video3Button = document.getElementById('video3Button');
+    const finalizarButton = document.getElementById('finalizarButton');
+
+    if (manualButton) {
+      manualButton.addEventListener('click', () =>
+        redirectTo('https://www.delldesignsystem.com/')
+      );
+    }
+    if (video1Button) {
+      video1Button.addEventListener('click', () => {
+
+        // set the progress of the handbook in localStorage
+
+        const handbookProgress = JSON.parse(localStorage.getItem('handbookProgress'));
+        const handbookIndex = handbookProgress.findIndex((handbook) => handbook.id === parseInt("<%= handbook.id %>"));
+        handbookProgress[handbookIndex].progress[0] = true;
+        localStorage.setItem('handbookProgress', JSON.stringify(handbookProgress));
+
+        return redirectTo(
+          'https://www.dell.com/support/contents/pt-br/videos/videoplayer/tutorial-on-ton-videos/1709789321555186469'
+        )
+      }
+      );
+    }
+    if (video2Button) {
+      video2Button.addEventListener('click', () =>
+      {
+
+// set the progress of the handbook in localStorage
+
+        const handbookProgress = JSON.parse(localStorage.getItem('handbookProgress'));
+        const handbookIndex = handbookProgress.findIndex((handbook) => handbook.id === parseInt("<%= handbook.id %>"));
+        handbookProgress[handbookIndex].progress[1] = true;
+        localStorage.setItem('handbookProgress', JSON.stringify(handbookProgress));
+
+        return redirectTo(
+          'https://www.dell.com/support/contents/pt-br/videos/videoplayer/tutorial-on-ton-videos/1709789321555186469'
+        )
+      }
+      );
+    }
+    if (video3Button) {
+      video3Button.addEventListener('click', () =>
+      {
+
+// set the progress of the handbook in localStorage
+
+          const handbookProgress = JSON.parse(localStorage.getItem('handbookProgress'));
+          const handbookIndex = handbookProgress.findIndex((handbook) => handbook.id === parseInt("<%= handbook.id %>"));
+          handbookProgress[handbookIndex].progress[2] = true;
+          localStorage.setItem('handbookProgress', JSON.stringify(handbookProgress));
+
+          return redirectTo(
+            'https://www.dell.com/support/contents/pt-br/videos/videoplayer/tutorial-on-ton-videos/1709789321555186469'
+          )
+      }
+      );
+    }
+    if (finalizarButton) {
+      finalizarButton.addEventListener('click', () =>
+        // redirectTo('https://www.delldesignsystem.com/')
+
+        // update the progress of the handbook in localStorage
+{      const handbookProgress = JSON.parse(localStorage.getItem('handbookProgress'));
+        const handbookIndex = handbookProgress.findIndex((handbook) => handbook.id === parseInt("<%= handbook.id %>"));
+
+        handbookProgress[handbookIndex].progress = [true, true, true, true];
+
+        localStorage.setItem('handbookProgress', JSON.stringify(handbookProgress));
+
+        return redirectTo("/meuProgresso")
+
+      }
+  
+      );
+    }
+  });
+</script>

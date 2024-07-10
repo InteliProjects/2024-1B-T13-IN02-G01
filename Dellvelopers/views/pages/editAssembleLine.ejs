@@ -1,0 +1,177 @@
+<div class="page flex flex-col lg:flex-row justify-between items-start w-full max-w-full gap-x-10">
+    <div class="mainContent flex flex-col justify-center items-start w-full max-w-[400px]">
+        <h2>Editar Linha de Montagem</h2>
+        <form id="form-670655257" data-dds="form" class="dds__form  w-full max-w-full">
+            <fieldset class="dds__form__section">
+              <div class="dds__row">
+                <div class="dds__col--1 dds__col--sm-3">
+                  <div class="dds__form__field">
+                    <div id="text-input-container-613069595" class="dds__input-text__container">
+                      <label id="text-input-label-613069595" for="text-input-control-613069595" class="dds__label dds__label">
+                        Nome
+                      </label>
+                      <div class="dds__input-text__wrapper">
+                        <input
+                          type="text"
+                          class="dds__input-text"
+                          name="text-input-control-name-613069595"
+                          id="text-input-control-613069595"
+                          required="true"
+                          aria-labelledby="text-input-label-613069595 text-input-helper-613069595"
+                        />
+                        <div id="text-input-error-613069595" class="dds__invalid-feedback">Digite o nome da linha para continuar</div>
+                      </div>
+                    </div>
+                  <div class="dds__form__field">
+                    <div id="text-input-container-195495885" class="dds__input-text__container">
+                      <label id="text-input-label-195495885" for="text-input-control-195495885" class="dds__label dds__label">
+                        Tipo de produto
+                      </label>
+                      <div class="dds__input-text__wrapper">
+                        <input
+                          type="text"
+                          class="dds__input-text"
+                          name="text-input-control-name-195495885"
+                          id="text-input-control-195495885"
+                          required="true"
+                          aria-labelledby="text-input-label-195495885 text-input-helper-195495885"
+                        />
+                        <div id="text-input-error-195495885" class="dds__invalid-feedback">Digite o tipo de produto para continuar</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dds__form__field">
+                    <div class="dds__dropdown" data-dds="dropdown" id="dropdown-123585455">
+                        <div class="dds__dropdown__input-container">
+                          <label id="dropdown-label-914004299" for="dropdown-control-914004299" class="dds__label">Funcionários a serem adicionados</label>
+                          <div class="dds__dropdown__input-wrapper" autocomplete="off" aria-haspopup="listbox" aria-controls="dropdown-popup-914004299">
+                            <input
+                              id="dropdown-control-914004299"
+                              name="dropdown-name"
+                              type="text"
+                              role="combobox"
+                              class="dds__dropdown__input-field"
+                              aria-labelledby="dropdown-label-914004299 dropdown-helper-914004299"
+                              autocomplete="off"
+                              aria-expanded="false"
+                              aria-controls="dropdown-popup-list-914004299"
+                            />
+                          </div>
+                        </div>
+                        <div id="dropdown-popup-914004299" class="dds__dropdown__popup dds__dropdown__popup--hidden" role="presentation" tabindex="-1">
+                          <ul class="dds__dropdown__list" role="listbox" tabindex="-1" id="dropdown-popup-list-914004299">
+                            <!-- Opções do dropdown serão preenchidas dinamicamente pelo JavaScript -->
+                          </ul>
+                        </div>
+                      </div>
+                </div>
+              </div>
+            </fieldset>
+            <button class="dds__button dds__form__submit w-full max-w-full" type="submit">Editar Linha de Montagem</button>
+          </form>
+    </div>
+</div>
+
+<script>
+    // Inicialização dos componentes DDS
+    const formElement = document.getElementById("form-670655257");
+    DDS.Form(formElement);
+  
+    const dropdownElement = document.getElementById("dropdown-123585455");
+    DDS.Dropdown(dropdownElement, { selection: "multiple", selectAll: true });
+  
+    document.addEventListener('DOMContentLoaded', async function () {
+      // Função para obter o ID da linha de montagem a partir da URL
+      function getAssembleLineIdFromUrl() {
+        const pathParts = window.location.pathname.split('/');
+        return pathParts[pathParts.length - 1];
+      }
+  
+      // Função para preencher os campos "Nome" e "Tipo de produto" com dados da tabela assembleLine
+      async function fillAssembleLineData() {
+        const assembleLineId = getAssembleLineIdFromUrl();
+        try {
+          const response = await fetch(`/api/models/assembleLine/${assembleLineId}`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+          const data = await response.json();
+          document.getElementById("text-input-control-613069595").value = data.name;
+          document.getElementById("text-input-control-195495885").value = data.description;
+        } catch (error) {
+          console.error('Erro ao obter dados da linha de montagem:', error);
+        }
+      }
+  
+      // Função para preencher as opções do dropdown com os nomes dos montadores
+      async function fillMontadoresDropdown() {
+        try {
+          const response = await fetch(`/api/models/users?accessLevel=montador`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+          const users = await response.json();
+          const dropdownList = document.getElementById("dropdown-popup-list-914004299");
+          dropdownList.innerHTML = ''; // Limpa as opções existentes
+          users.forEach(user => {
+            const option = document.createElement('li');
+            option.classList.add('dds__dropdown__item');
+            option.setAttribute('role', 'none');
+            const button = document.createElement('button');
+            button.setAttribute('type', 'button');
+            button.classList.add('dds__dropdown__item-option');
+            button.setAttribute('role', 'option');
+            button.setAttribute('data-selected', 'false');
+            button.setAttribute('data-value', user.id); // Aqui você pode definir o valor do ID do usuário
+            button.setAttribute('tabindex', '-1');
+            const span = document.createElement('span');
+            span.classList.add('dds__dropdown__item-label');
+            span.textContent = user.name; // Aqui você pode definir o nome do usuário
+            button.appendChild(span);
+            option.appendChild(button);
+            dropdownList.appendChild(option);
+          });
+        } catch (error) {
+          console.error('Erro ao obter montadores:', error);
+        }
+      }
+  
+      // Preencher os campos e dropdowns ao carregar a página
+      await fillAssembleLineData();
+      await fillMontadoresDropdown();
+  
+      // Função para lidar com o envio do formulário
+      formElement.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const assembleLineId = getAssembleLineIdFromUrl();
+        const nome = document.getElementById("text-input-control-613069595").value;
+        const tipoProduto = document.getElementById("text-input-control-195495885").value;
+        const selectedMontadores = Array.from(dropdownElement.querySelectorAll('.dds__dropdown__item-option[data-selected="true"]')).map(option => option.getAttribute('data-value'));
+  
+        try {
+          const response = await fetch(`/api/models/assembleLine/${assembleLineId}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              nome,
+              tipoProduto,
+              montadores: selectedMontadores
+            })
+          });
+          if (response.ok) {
+
+          } else {
+            console.error('Erro ao atualizar linha de montagem:', response.statusText);
+          }
+        } catch (error) {
+          console.error('Erro ao atualizar linha de montagem:', error);
+        }
+      });
+    });
+</script>

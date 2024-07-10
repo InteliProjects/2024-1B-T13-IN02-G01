@@ -1,0 +1,45 @@
+{
+  "processes": {
+    "31519473-d56b-44c1-88b9-0a7f5f3356ce": { "parent": null, "children": [] },
+    "bd6fad6c-f12f-4e25-9af3-ee9b3852ab72": { "parent": null, "children": [] }
+  },
+  "files": {
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\AdditionalFilesController.js": [
+      "31519473-d56b-44c1-88b9-0a7f5f3356ce",
+      "bd6fad6c-f12f-4e25-9af3-ee9b3852ab72"
+    ],
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\AssembleLinesController.js": [
+      "31519473-d56b-44c1-88b9-0a7f5f3356ce",
+      "bd6fad6c-f12f-4e25-9af3-ee9b3852ab72"
+    ],
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\AuthController.js": [
+      "31519473-d56b-44c1-88b9-0a7f5f3356ce",
+      "bd6fad6c-f12f-4e25-9af3-ee9b3852ab72"
+    ],
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\FavoritesController.js": [
+      "31519473-d56b-44c1-88b9-0a7f5f3356ce",
+      "bd6fad6c-f12f-4e25-9af3-ee9b3852ab72"
+    ],
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\HandbooksController.js": [
+      "31519473-d56b-44c1-88b9-0a7f5f3356ce",
+      "bd6fad6c-f12f-4e25-9af3-ee9b3852ab72"
+    ],
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\KanbanController.js": [
+      "31519473-d56b-44c1-88b9-0a7f5f3356ce",
+      "bd6fad6c-f12f-4e25-9af3-ee9b3852ab72"
+    ],
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\TasksController.js": [
+      "31519473-d56b-44c1-88b9-0a7f5f3356ce",
+      "bd6fad6c-f12f-4e25-9af3-ee9b3852ab72"
+    ],
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\UsersController.js": [
+      "31519473-d56b-44c1-88b9-0a7f5f3356ce",
+      "bd6fad6c-f12f-4e25-9af3-ee9b3852ab72"
+    ],
+    "C:\\Modulo2\\2024-1B-T13-IN02-G01\\Dellvelopers\\api\\controllers\\ViewController.js": [
+      "31519473-d56b-44c1-88b9-0a7f5f3356ce",
+      "bd6fad6c-f12f-4e25-9af3-ee9b3852ab72"
+    ]
+  },
+  "externalIds": {}
+}
